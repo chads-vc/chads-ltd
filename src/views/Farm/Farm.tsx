@@ -12,6 +12,7 @@ import Button from '../../components/Button'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import Loader from '../../components/Loader'
+import DroppedCoppedLabel from '../../components/DroppedCoppedLabel'
 
 import useEarnings from '../../hooks/useEarnings'
 import useFarm from '../../hooks/useFarm'
@@ -30,11 +31,12 @@ import wavyClipArt from '../../assets/img/wavy-clipart.png'
 import cardImg1 from '../../assets/img/cards/1.gif'
 import cardImg2 from '../../assets/img/cards/2.gif'
 import cardImg3 from '../../assets/img/cards/3.gif'
-import cardImg4 from '../../assets/img/cards/1.gif'
-import cardImg5 from '../../assets/img/cards/2.gif'
-import cardImg6 from '../../assets/img/cards/3.gif'
+import cardImg4 from '../../assets/img/cards/4.gif'
+import cardImg5 from '../../assets/img/cards/5.gif'
+import cardImg6 from '../../assets/img/cards/6.gif'
 
 import buyButtonActive from '../../assets/img/buy-button-active.gif'
+import buyButtonDisabled from '../../assets/img/buy-button-disabled.png'
 
 const Farm: React.FC = () => {
   const { farmId } = useParams()
@@ -130,7 +132,7 @@ const Farm: React.FC = () => {
                 return (<StyledCard key={j}>
                   <StyledCardContent>
                     <StyledContent>
-                      <StyledCardImage src={cardImages[j]} />
+                      <StyledCardImage src={cardImages[i*3+j]} />
                     </StyledContent>
                     <StyledCardActions>
                       <Button
@@ -138,7 +140,8 @@ const Farm: React.FC = () => {
                         text=""
                         disabled={!earnings.toNumber()}
                       />
-                      <StyledBuyButton src={buyButtonActive} />
+                      <StyledBuyButton src={!earnings.toNumber() ? buyButtonDisabled : buyButtonActive} />
+                      <DroppedCoppedLabel dropped={i === 0 ? 100 : 1000} copped={0} />
                     </StyledCardActions>
                   </StyledCardContent>
                 </StyledCard>)
@@ -166,8 +169,9 @@ function chunk(array, size) {
 
 const StyledCardActions = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
-  margin-top: ${props => props.theme.spacing[6]}px;
+  margin-top: 10px;
   width: 100%;
 `
 
@@ -310,6 +314,22 @@ const StyledBuyButton = styled.img`
   position: absolute;
   width: 82px;
   height: 61px;
+  object-fit: cover;
+`
+const StyledDroppedContainer = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 82px;
+  height: 61px;
+  object-fit: cover;
+`
+const StyledCoppedContainer = styled.img`
+  position: absolute;
+  width: 82px;
+  height: 61px;
+  top: 0;
+  right: 0;
   object-fit: cover;
 `
 
