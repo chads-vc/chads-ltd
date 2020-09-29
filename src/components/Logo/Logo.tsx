@@ -5,11 +5,32 @@ import { Link } from 'react-router-dom'
 import logoType from '../../assets/img/textlogo.webp'
 import camera from '../../assets/img/camera.gif'
 
-const Logo: React.FC = () => {
+import logoType0 from '../../assets/img/logotype0.png'
+import logoType1 from '../../assets/img/logotype1.png'
+import logoType2 from '../../assets/img/logotype2.png'
+import logoType3 from '../../assets/img/logotype3.png'
+import logoType4 from '../../assets/img/logotype4.png'
+
+interface LogoProps {
+  logotypeIndex?: number
+}
+
+const Logo: React.FC<LogoProps> = ({logotypeIndex}) => {
+
+  let logoTypeImg: string
+  
+  logoTypeImg = [
+    logoType0,
+    logoType1,
+    logoType2,
+    logoType3,
+    logoType4
+  ][logotypeIndex];
+
   return (
     <StyledLogo to="/">
       <StyledCamera src={camera} />
-      <StyledLogoType src={logoType} />
+      <StyledLogoType src={logoTypeImg} />
       <StyledTitle>the finest nft collectibles</StyledTitle>
       <StyledSubtitle>a division of chads.vc</StyledSubtitle>
     </StyledLogo>
@@ -25,8 +46,8 @@ const StyledCamera = styled.img`
 `
 const StyledLogoType = styled.img`
   position: absolute;
-  width: 377px;
-  height: 128px;
+  width: 400px;
+  height: 100px;
   top: 30px;
   z-index: 2;
 `

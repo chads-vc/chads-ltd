@@ -1,12 +1,16 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 
-import gradientBg from '../../assets/img/blue-pink-gradient.png'
+import gradientBgFirst from '../../assets/img/button-bg-first-third.png'
+import gradientBgSecond from '../../assets/img/button-bg-second-third.png'
+import gradientBgThird from '../../assets/img/button-bg-third-third.png'
+import gradientBgAll from '../../assets/img/button-bg-all-thirds.png'
 
 import { Link } from 'react-router-dom'
 
 interface ButtonProps {
   customColor?: 'purple' | 'blue' | 'pink',
+  backgroundGradient?: string,
   children?: React.ReactNode,
   disabled?: boolean,
   href?: string,
@@ -19,6 +23,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   customColor,
+  backgroundGradient,
   children,
   disabled,
   href,
@@ -29,6 +34,8 @@ const Button: React.FC<ButtonProps> = ({
   variant,
 }) => {
   const { color, spacing } = useContext(ThemeContext)
+
+  let backgroundUrl: string
 
   let buttonColor: string
   switch (variant) {
@@ -52,6 +59,23 @@ const Button: React.FC<ButtonProps> = ({
       break
     default:
       buttonColor = color.primary.main
+  }
+
+  switch (backgroundGradient) {
+    case 'first':
+      backgroundUrl = gradientBgFirst
+      break
+    case 'second':
+      backgroundUrl = gradientBgSecond
+      break
+    case 'third':
+      backgroundUrl = gradientBgThird
+      break
+    case 'all':
+      backgroundUrl = gradientBgAll
+      break
+    default:
+      backgroundUrl = gradientBgAll
   }
 
   let boxShadow: string
@@ -96,6 +120,7 @@ const Button: React.FC<ButtonProps> = ({
     <StyledButton
       boxShadow={boxShadow}
       color={buttonColor}
+      backgroundUrl={backgroundUrl}
       disabled={disabled}
       fontSize={fontSize}
       onClick={onClick}
@@ -110,6 +135,7 @@ const Button: React.FC<ButtonProps> = ({
 
 interface StyledButtonProps {
   boxShadow: string,
+  backgroundUrl: string,
   color: string,
   disabled?: boolean,
   fontSize: number,
@@ -136,8 +162,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding-right: ${props => props.padding}px;
   pointer-events: ${props => !props.disabled ? undefined : 'none'};
   width: 100%;
-  background-image: url(${gradientBg});
+  background-image: url(${props => props.backgroundUrl});
   background-size: 100% 100%;
+  box-shadow: none;
   &:hover {
     opacity: 0.9;
   }

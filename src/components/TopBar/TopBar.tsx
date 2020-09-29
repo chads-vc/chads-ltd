@@ -5,6 +5,7 @@ import Container from '../Container'
 import Logo from '../Logo'
 
 import AccountButton from './components/AccountButton'
+import StakeButton from './components/StakeButton'
 import Nav from './components/Nav'
 
 interface TopBarProps {
@@ -17,21 +18,16 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
       <Container size="lg">
         <StyledTopBarInner>
           <StyledLogoWrapper>
-            <Logo />
+            <Logo logotypeIndex={Math.floor(Math.random() * Math.floor(5))} />
           </StyledLogoWrapper>
           <StyledActionsMenu>
             <StyledWalletButtonWrapper>
-              <AccountButton text="Wallet" customColor="blue" />
+              <AccountButton text="Wallet" backgroundGradient="all" customColor="blue" />
             </StyledWalletButtonWrapper>
-            <StyledSeriesButtonsWrapper>
-              <AccountButton text="Series" customColor="purple" />
-              <AccountButton text="Series" customColor="blue" />
-              <AccountButton text="Series" customColor="pink" />
-            </StyledSeriesButtonsWrapper>
             <StyledActionsButtonWrapper>
-              <AccountButton text="Staked" customColor="purple" />
-              <AccountButton text="Chadlets" customColor="blue" />
-              <AccountButton text="Gallery" customColor="pink" />
+              <StakeButton text="Staked" backgroundGradient="first" customColor="purple" />
+              <AccountButton text="Chadlets" backgroundGradient="second" customColor="blue" />
+              <AccountButton text="Gallery" backgroundGradient="third" customColor="pink" />
             </StyledActionsButtonWrapper>
           </StyledActionsMenu>
         </StyledTopBarInner>
@@ -59,6 +55,7 @@ const StyledWalletButtonWrapper = styled.div`
 const StyledActionsMenu = styled.div`
   text-align: right;
   width: 500px;
+  padding-top: 25px;
   display: block;
 `
 
@@ -72,7 +69,7 @@ const StyledActionsButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   max-width: 420px;
-  margin: 18px 0 12px auto;
+  margin: 35px 0 12px auto;
   transform: scale(1.15);
   transform-origin: 100% 50%;
 `

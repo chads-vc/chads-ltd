@@ -8,17 +8,17 @@ import useModal from '../../../hooks/useModal'
 import Button from '../../Button'
 import WalletProviderModal from '../../WalletProviderModal'
 
-import AccountModal from './AccountModal'
+import StakeModal from '../../StakeModal'
 
-interface AccountButtonProps {
+interface StakeButtonProps {
   customColor?: 'purple' | 'blue' | 'pink',
   backgroundGradient?: 'first' | 'second' | 'third' | 'all',
   text?: string
 }
 
-const AccountButton: React.FC<AccountButtonProps> = (props) => {
+const StakeButton: React.FC<StakeButtonProps> = (props) => {
 
-  const [onPresentAccountModal] = useModal(<AccountModal />)
+  const [onPresentStakeModal] = useModal(<StakeModal />)
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />, 'provider')
   
   const { account } = useWallet()
@@ -28,7 +28,7 @@ const AccountButton: React.FC<AccountButtonProps> = (props) => {
   }, [onPresentWalletProviderModal])
 
   return (
-    <StyledAccountButton>
+    <StyledStakeButton>
       {!account ? (
         <Button
           onClick={handleUnlockClick}
@@ -39,19 +39,19 @@ const AccountButton: React.FC<AccountButtonProps> = (props) => {
         />
       ) : (
         <Button
-          onClick={onPresentAccountModal}
+          onClick={onPresentStakeModal}
           customColor={props.customColor}
           backgroundGradient={props.backgroundGradient}
           size="sm"
-          text={props.text || "My Wallet"}
+          text={props.text || "Stake"}
         />
       )}
-    </StyledAccountButton>
+    </StyledStakeButton>
   )
 }
 
-const StyledAccountButton = styled.div`
+const StyledStakeButton = styled.div`
   flex: 1;
 `
 
-export default AccountButton
+export default StakeButton
