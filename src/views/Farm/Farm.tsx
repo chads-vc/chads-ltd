@@ -17,15 +17,18 @@ import DroppedCoppedLabel from '../../components/DroppedCoppedLabel'
 import useEarnings from '../../hooks/useEarnings'
 import useFarm from '../../hooks/useFarm'
 import useRedeem from '../../hooks/useRedeem'
+import useModal from '../../hooks/useModal'
 import { getContract } from '../../utils/erc20'
 
 import Harvest from './components/Harvest'
+
+import CoppedModal from '../../components/CoppedModal'
 
 import { chadletsCards } from '../../yam/lib/constants.js';
 
 import greekRare from '../../assets/img/greek-rare.png'
 import greekCommon from '../../assets/img/greek-common.png'
-import gradientBg from '../../assets/img/blue-pink-gradient.png'
+import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
 
 import cardImg1 from '../../assets/img/cards/1.gif'
@@ -66,6 +69,7 @@ const Farm: React.FC = () => {
   }, [ethereum, depositTokenAddress])
 
   const { onRedeem } = useRedeem(contract)
+  const [onPresentCoppedModal] = useModal(<CoppedModal />)
 
   const earnings = useEarnings(contract)
 
@@ -136,11 +140,13 @@ const Farm: React.FC = () => {
                     </StyledContent>
                     <StyledCardActions>
                       <Button
-                        onClick={() => onRedeem(i + 1)}
+                        onClick={() => {
+                          onRedeem(i + 1).then(txnHash => onPresentCoppedModal())
+                        }}
                         text=""
-                        disabled={!earnings.toNumber()}
+                        disabled={earnings.toNumber() < card.pool.points}
                       />
-                      <StyledBuyButton src={!earnings.toNumber() ? buyButtonDisabled : buyButtonActive} />
+                      <StyledBuyButton src={(earnings.toNumber() < card.pool.points) ? buyButtonDisabled : buyButtonActive} />
                       <DroppedCoppedLabel dropped={i === 0 ? 100 : 1000} copped={0} />
                     </StyledCardActions>
                   </StyledCardContent>

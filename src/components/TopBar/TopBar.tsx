@@ -7,6 +7,8 @@ import Logo from '../Logo'
 import AccountButton from './components/AccountButton'
 import StakeButton from './components/StakeButton'
 import WalletButton from './components/WalletButton'
+
+import ChadletButton from './components/ChadletsButton'
 import Nav from './components/Nav'
 
 import useFarm from '../../hooks/useFarm'
@@ -46,9 +48,9 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
               <WalletButton text="Unlock" backgroundGradient="all" customColor="blue" />
             </StyledWalletButtonWrapper>
             <StyledActionsButtonWrapper>
-              <StakeButton text="LP Tokens" backgroundGradient="first" customColor="purple" poolContract={contract}/>
-              <AccountButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" />
-              <AccountButton text="My Cards" backgroundGradient="third" customColor="pink" />
+              <StakeButton text="Stake LP Tokens" backgroundGradient="first" customColor="purple" poolContract={contract}/>
+              <ChadletButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" poolContract = {contract}/>
+              <AccountButton text="My NFTs" backgroundGradient="third" customColor="pink" />
             </StyledActionsButtonWrapper>
           </StyledActionsMenu>
         </StyledTopBarInner>
