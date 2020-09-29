@@ -6,6 +6,8 @@ import Logo from '../Logo'
 
 import AccountButton from './components/AccountButton'
 import StakeButton from './components/StakeButton'
+import Button from '../../components/Button'
+
 import Nav from './components/Nav'
 
 interface TopBarProps {
@@ -27,7 +29,9 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
             <StyledActionsButtonWrapper>
               <StakeButton text="Staked" backgroundGradient="first" customColor="purple" />
               <AccountButton text="Chadlets" backgroundGradient="second" customColor="blue" />
-              <AccountButton text="Gallery" backgroundGradient="third" customColor="pink" />
+              <StyledButton>
+                <Button text="Gallery" to="/gallery" backgroundGradient="third" customColor="pink" size="sm" />
+              </StyledButton>
             </StyledActionsButtonWrapper>
           </StyledActionsMenu>
         </StyledTopBarInner>
@@ -35,6 +39,10 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
     </StyledTopBar>
   )
 }
+
+const StyledButton = styled.div`
+  flex: 1;
+`
 
 const StyledLogoWrapper = styled.div`
   width: 377px;

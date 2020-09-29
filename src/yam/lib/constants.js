@@ -1,5 +1,12 @@
 import BigNumber from 'bignumber.js/bignumber';
 
+import card1 from '../../assets/cards/1.json'
+import card2 from '../../assets/cards/2.json'
+import card3 from '../../assets/cards/3.json'
+import card4 from '../../assets/cards/4.json'
+import card5 from '../../assets/cards/5.json'
+import card6 from '../../assets/cards/6.json'
+
 export const SUBTRACT_GAS_LIMIT = 100000;
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60);
@@ -38,3 +45,12 @@ export const addressMap = {
   YAMYCRV: "0x2C7a51A357d5739C5C74Bf3C96816849d2c9F726",
   CHADSETH: "0x95f7F4a2Ee543Ff120Cdb82589f6Ec27D81e7aDc"
 }
+
+export const chadletsCards = [
+  card1,
+  card2,
+  card3,
+  card4,
+  card5,
+  card6
+];

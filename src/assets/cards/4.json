@@ -1,0 +1,16 @@
+{
+	"pool": { "name": "chadlets", "points": 420 },
+	"external_url": "https://api.chads.vc/cards/4",
+	"image": "https://api.chads.vc/img/4.gif",
+	"name": "Andre Cronje Rare",
+	"description": "Andre the DeFiant",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Rare" },
+		{ "trait_type": "Artist", "value": "Pings" },
+		{ "trait_type": "Collection", "value": "Chads of DeFi" },
+		{ "trait_type": "Type", "value": "Crypto Influencers" },
+		{ "trait_type": "Season", "value": "1" },
+		{ "trait_type": "Tag", "value": "YFI" },
+		{ "trait_type": "Max Supply", "value": "100" }
+	]
+}

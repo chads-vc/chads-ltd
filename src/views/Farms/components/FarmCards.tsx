@@ -10,6 +10,7 @@ import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
 import Loader from '../../../components/Loader'
 import Spacer from '../../../components/Spacer'
+import Page from '../../../components/Page'
 
 import useFarms from '../../../hooks/useFarms'
 import useYam from '../../../hooks/useYam'
@@ -38,42 +39,44 @@ const FarmCards: React.FC = () => {
   }, [[]])
 
   return (
-    <StyledCards>
-      {!!rows[0].length ? rows.map((farmRow, i) => (
-        (i === 0 || i === 1) && (<StyledRow key={i}>
-          <StyledRowHeader>
-            {i === 0 && 
-              <React.Fragment>
-                <StyledGreekImage src={greekRare} />
-                <StyledHeading>
-                  420 Chadlets
-                </StyledHeading>
-                <StyledWavyRare src={wavyClipArt} />
+    <Page>
+      <StyledCards>
+        {!!rows[0].length ? rows.map((farmRow, i) => (
+          (i === 0 || i === 1) && (<StyledRow key={i}>
+            <StyledRowHeader>
+              {i === 0 && 
+                <React.Fragment>
+                  <StyledGreekImage src={greekRare} />
+                  <StyledHeading>
+                    420 Chadlets
+                  </StyledHeading>
+                  <StyledWavyRare src={wavyClipArt} />
+                </React.Fragment>
+              }
+              {i === 1 &&
+                <React.Fragment>
+                  <StyledGreekImage src={greekCommon} />
+                  <StyledHeading>
+                    69 Chadlets
+                  </StyledHeading>
+                  <StyledWavyCommon src={wavyClipArt} />
+                </React.Fragment>
+              }
+            </StyledRowHeader>
+            {farmRow.map((farm, j) => (
+              <React.Fragment key={j}>
+                <FarmCard farm={farm} />
+                {(j === 0 || j === 1) && <StyledSpacer />}
               </React.Fragment>
-            }
-            {i === 1 &&
-              <React.Fragment>
-                <StyledGreekImage src={greekCommon} />
-                <StyledHeading>
-                  69 Chadlets
-                </StyledHeading>
-                <StyledWavyCommon src={wavyClipArt} />
-              </React.Fragment>
-            }
-          </StyledRowHeader>
-          {farmRow.map((farm, j) => (
-            <React.Fragment key={j}>
-              <FarmCard farm={farm} />
-              {(j === 0 || j === 1) && <StyledSpacer />}
-            </React.Fragment>
-          ))}
-        </StyledRow>)
-      )) : (
-          <StyledLoadingWrapper>
-            <Loader text="Loading.." />
-          </StyledLoadingWrapper>
-        )}
-    </StyledCards>
+            ))}
+          </StyledRow>)
+        )) : (
+            <StyledLoadingWrapper>
+              <Loader text="Loading.." />
+            </StyledLoadingWrapper>
+          )}
+      </StyledCards>
+    </Page>
   )
 }
 

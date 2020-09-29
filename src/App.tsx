@@ -21,6 +21,7 @@ import useModal from './hooks/useModal'
 
 import FAQ from './views/FAQ'
 import Farms from './views/Farms'
+import Gallery from './views/Gallery'
 import Home from './views/Home'
 
 import theme from './theme'
@@ -50,7 +51,7 @@ const App: React.FC = () => {
             <Farms />
           </Route>
           <Route path="/gallery">
-            <Farms />
+            <Gallery />
           </Route>          
           <Route path="/faq">
             <FAQ />

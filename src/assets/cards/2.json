@@ -1,0 +1,16 @@
+{
+	"pool": { "name": "chadlets", "points": 69 },
+	"external_url": "https://api.chads.vc/cards/2",
+	"image": "https://api.chads.vc/img/2.gif",
+	"name": "Daryl and Darren Lau Common",
+	"description": "Blood Lau",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Common" },
+		{ "trait_type": "Artist", "value": "Sergio Valente" },
+		{ "trait_type": "Collection", "value": "Chads of DeFi" },
+		{ "trait_type": "Type", "value": "Crypto Influencers" },
+		{ "trait_type": "Season", "value": "1" },
+		{ "trait_type": "Tag", "value": "CoinGecko" },
+		{ "trait_type": "Max Supply", "value": "1000" }
+	]
+}
