@@ -319,6 +319,7 @@ const StyledCard = styled.div`
 const StyledBuyButton = styled.img`
   position: absolute;
   width: 82px;
+  pointer-events: none;
   height: 61px;
   object-fit: cover;
 `

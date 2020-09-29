@@ -47,6 +47,7 @@ const StyledCoppedLabel = styled.label`
 
 const StyledDroppedCoppedWrapper = styled.div`
   position: absolute;
+  pointer-events: none;
   width: 100%;
   top: 0;
   left: 0;
