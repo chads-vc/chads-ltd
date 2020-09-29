@@ -71,7 +71,7 @@ const StakeModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
 const StyledCardsWrapper = styled.div`
   display: flex;
-  width: 600px;
+  width: 100%;
   @media (max-width: 768px) {
     width: 100%;
     flex-flow: column nowrap;
