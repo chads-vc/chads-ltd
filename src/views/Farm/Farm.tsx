@@ -30,9 +30,11 @@ import wavyClipArt from '../../assets/img/wavy-clipart.png'
 import cardImg1 from '../../assets/img/cards/1.gif'
 import cardImg2 from '../../assets/img/cards/2.gif'
 import cardImg3 from '../../assets/img/cards/3.gif'
-import cardImg4 from '../../assets/img/cards/4.gif'
-import cardImg5 from '../../assets/img/cards/5.gif'
-import cardImg6 from '../../assets/img/cards/6.gif'
+import cardImg4 from '../../assets/img/cards/1.gif'
+import cardImg5 from '../../assets/img/cards/2.gif'
+import cardImg6 from '../../assets/img/cards/3.gif'
+
+import buyButtonActive from '../../assets/img/buy-button-active.gif'
 
 const Farm: React.FC = () => {
   const { farmId } = useParams()
@@ -123,8 +125,9 @@ const Farm: React.FC = () => {
               }
             </StyledRowHeader>
             <StyledCardsRow>
-              {cardRow.map((card, j) => (
-                <StyledCard key={j}>
+              {cardRow.map((card, j) => {
+                console.log(card);
+                return (<StyledCard key={j}>
                   <StyledCardContent>
                     <StyledContent>
                       <StyledCardImage src={cardImages[j]} />
@@ -132,13 +135,14 @@ const Farm: React.FC = () => {
                     <StyledCardActions>
                       <Button
                         onClick={() => onRedeem(i + 1)}
-                        text="Redeem Card"
+                        text=""
                         disabled={!earnings.toNumber()}
                       />
+                      <StyledBuyButton src={buyButtonActive} />
                     </StyledCardActions>
                   </StyledCardContent>
-                </StyledCard>
-              ))}
+                </StyledCard>)
+              })}
             </StyledCardsRow>
           </StyledRow>)
         )) : (
@@ -302,6 +306,12 @@ const StyledCard = styled.div`
   width: 30%;
 `
 
+const StyledBuyButton = styled.img`
+  position: absolute;
+  width: 82px;
+  height: 61px;
+  object-fit: cover;
+`
 
 
 export default Farm
