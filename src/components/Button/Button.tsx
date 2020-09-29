@@ -146,6 +146,7 @@ interface StyledButtonProps {
 const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
   font-weight: bold;
+  line-height: 0.9;
   text-shadow: rgba(255, 255, 255, 0.6) 0.2px 0.2px 0.2px, rgba(0, 0, 0, 0.6) -0.2px -0.2px 0.2px;
   text-transform: uppercase;
   background-color: transparent;

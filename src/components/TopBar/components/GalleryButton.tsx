@@ -39,7 +39,7 @@ const GalleryButton: React.FC<GalleryButtonProps> = (props) => {
         />
       ) : (
         <Button
-	  href={`https://rinkeby.opensea.io/accounts/${account}`}
+	  href={`https://opensea.io/accounts/${account}`}
           customColor={props.customColor}
           backgroundGradient={props.backgroundGradient}
           size="sm"

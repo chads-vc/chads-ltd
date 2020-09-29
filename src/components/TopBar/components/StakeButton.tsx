@@ -53,7 +53,7 @@ const StakeButton: React.FC<StakeButtonProps> = (props) => {
           customColor={props.customColor}
           backgroundGradient={props.backgroundGradient}
           size="sm"
-          text={((stakedBalance <= new BigNumber(0)) ? "Stake LP Tokens" : `${getDisplayBalance(stakedBalance)} LP Tokens Staked`)}
+          text={((stakedBalance <= new BigNumber(0)) ? "LP Tokens" : `${getDisplayBalance(stakedBalance)} LP Tokens Staked`)}
         />
       )}
     </StyledStakeButton>

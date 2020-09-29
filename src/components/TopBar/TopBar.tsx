@@ -51,7 +51,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
             <StyledActionsButtonWrapper>
               <StakeButton text="Stake LP Tokens" backgroundGradient="first" customColor="purple" poolContract={contract}/>
               <ChadletButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" poolContract = {contract}/>
-              <GalleryButton text="My Cards" backgroundGradient="third" customColor="pink" />
+              <GalleryButton text="My NFTs" backgroundGradient="third" customColor="pink" />
             </StyledActionsButtonWrapper>
           </StyledActionsMenu>
         </StyledTopBarInner>
@@ -75,7 +75,7 @@ const StyledTopBar = styled.div`
 `
 const StyledWalletButtonWrapper = styled.div`
   width: 100%;
-  max-width: 110px;
+  max-width: 170px;
   display: block;
   margin: 8px 0 12px auto;
 `
