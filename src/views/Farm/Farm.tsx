@@ -141,7 +141,7 @@ const Farm: React.FC = () => {
                     <StyledCardActions>
                       <Button
                         onClick={() => {
-                          onRedeem((Math.abs(i-1)*3+j)+1).then(txnHash => onPresentCoppedModal((Math.abs(i-1)*3+j)+1))
+                          onRedeem((Math.abs(i-1)*3+j)+1).then(txnHash => onPresentCoppedModal())
                         }}
                         text=""
                         disabled={earnings.toNumber() < card.pool.points}
