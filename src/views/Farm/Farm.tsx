@@ -136,7 +136,7 @@ const Farm: React.FC = () => {
                 return (<StyledCard key={j}>
                   <StyledCardContent>
                     <StyledContent>
-                      <StyledCardImage src={cardImages[i*3+j]} />
+                      <StyledCardImage src={`https://api.chads.vc/img/${(Math.abs(i-1)*3+j)+1}.gif`} />
                     </StyledContent>
                     <StyledCardActions>
                       <Button
