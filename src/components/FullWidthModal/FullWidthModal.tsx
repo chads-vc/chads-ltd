@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import coppedBackground from '../../assets/img/mall-copped.jpg'
 
 export interface FullWidthModalProps {
+  cardId?: number,
   onDismiss?: () => void,
 }
 

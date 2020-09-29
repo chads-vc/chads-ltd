@@ -69,7 +69,12 @@ const Farm: React.FC = () => {
   }, [ethereum, depositTokenAddress])
 
   const { onRedeem } = useRedeem(contract)
-  const [onPresentCoppedModal] = useModal(<CoppedModal />)
+  const [onPresentCoppedModal1] = useModal(<CoppedModal cardId={1} />)
+  const [onPresentCoppedModal2] = useModal(<CoppedModal cardId={2} />)
+  const [onPresentCoppedModal3] = useModal(<CoppedModal cardId={3} />)
+  const [onPresentCoppedModal4] = useModal(<CoppedModal cardId={4} />)
+  const [onPresentCoppedModal5] = useModal(<CoppedModal cardId={5} />)
+  const [onPresentCoppedModal6] = useModal(<CoppedModal cardId={6} />)
 
   const earnings = useEarnings(contract)
 
@@ -141,7 +146,19 @@ const Farm: React.FC = () => {
                     <StyledCardActions>
                       <Button
                         onClick={() => {
-                          onRedeem((Math.abs(i-1)*3+j)+1).then(txnHash => onPresentCoppedModal((Math.abs(i-1)*3+j)+1))
+                          if ((Math.abs(i-1)*3+j)+1 == 1) {
+                            onRedeem("1").then(txnHash => onPresentCoppedModal1());
+                          } else if ((Math.abs(i-1)*3+j)+1 == 2) {
+                            onRedeem("2").then(txnHash => onPresentCoppedModal2());
+                          } else if ((Math.abs(i-1)*3+j)+1 == 3) {
+                            onRedeem("3").then(txnHash => onPresentCoppedModal3());
+                          } else if ((Math.abs(i-1)*3+j)+1 == 4) {
+                            onRedeem("4").then(txnHash => onPresentCoppedModal4());
+                          } else if ((Math.abs(i-1)*3+j)+1 == 5) {
+                            onRedeem("5").then(txnHash => onPresentCoppedModal5());
+                          } else if ((Math.abs(i-1)*3+j)+1 == 6) {
+                            onRedeem("6").then(txnHash => onPresentCoppedModal6());
+                          }
                         }}
                         text=""
                         disabled={earnings.toNumber() < card.pool.points}
