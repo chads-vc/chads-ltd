@@ -45,14 +45,14 @@ const App: React.FC = () => {
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Farms />
           </Route>
           <Route path="/farms">
             <Farms />
           </Route>
           <Route path="/gallery">
             <Gallery />
-          </Route>          
+          </Route>
           <Route path="/faq">
             <FAQ />
           </Route>
@@ -67,7 +67,7 @@ const Providers: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <UseWalletProvider
-        chainId={4}
+        chainId={1}
         connectors={{
           walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
         }}

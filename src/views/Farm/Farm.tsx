@@ -42,7 +42,7 @@ import buyButtonActive from '../../assets/img/buy-button-active.gif'
 import buyButtonDisabled from '../../assets/img/buy-button-disabled.png'
 
 const Farm: React.FC = () => {
-  const { farmId } = useParams()
+  const farmId = "chads_eth_uni_lp"
   const {
     contract,
     depositToken,
