@@ -1,44 +1,35 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
-import BigNumber from 'bignumber.js'
 
 import { useWallet } from 'use-wallet'
 
 import useModal from '../../../hooks/useModal'
-
-import { Contract } from 'web3-eth-contract'
-
-import useStakedBalance from '../../../hooks/useStakedBalance'
-
-import { getDisplayBalance } from '../../../utils/formatBalance'
+import { formatAddress } from '../../../utils/index'
 
 import Button from '../../Button'
 import WalletProviderModal from '../../WalletProviderModal'
 
-import StakeModal from '../../StakeModal'
+import AccountModal from './AccountModal'
 
-interface StakeButtonProps {
+interface WalletButtonProps {
   customColor?: 'purple' | 'blue' | 'pink',
   backgroundGradient?: 'first' | 'second' | 'third' | 'all',
-  text?: string,
-  poolContract?: Contract,
+  text?: string
 }
 
-const StakeButton: React.FC<StakeButtonProps> = (props) => {
+const WalletButton: React.FC<WalletButtonProps> = (props) => {
 
-  const [onPresentStakeModal] = useModal(<StakeModal />)
+  const [onPresentAccountModal] = useModal(<AccountModal />)
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />, 'provider')
   
   const { account } = useWallet()
 
-  const stakedBalance = useStakedBalance(props.poolContract)
-  console.log(stakedBalance)
   const handleUnlockClick = useCallback(() => {
     onPresentWalletProviderModal()
   }, [onPresentWalletProviderModal])
 
   return (
-    <StyledStakeButton>
+    <StyledWalletButton>
       {!account ? (
         <Button
           onClick={handleUnlockClick}
@@ -49,19 +40,19 @@ const StakeButton: React.FC<StakeButtonProps> = (props) => {
         />
       ) : (
         <Button
-          onClick={onPresentStakeModal}
+          onClick={onPresentAccountModal}
           customColor={props.customColor}
           backgroundGradient={props.backgroundGradient}
           size="sm"
-          text={((stakedBalance <= new BigNumber(0)) ? "Stake LP Tokens" : `${getDisplayBalance(stakedBalance)} LP Tokens Staked`)}
+          text={formatAddress(account)}
         />
       )}
-    </StyledStakeButton>
+    </StyledWalletButton>
   )
 }
 
-const StyledStakeButton = styled.div`
+const StyledWalletButton = styled.div`
   flex: 1;
 `
 
-export default StakeButton
+export default WalletButton
