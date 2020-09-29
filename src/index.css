@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'arian-lt-w20-light';
+  src: local('arian-light'), url(./assets/fonts/arian-light.woff) format('woff');
+}
+
+body {
+  background: transparent;
+  margin: 0;
+  font-family: arian-lt-w20-light, sans-serif;
+  font-size: 16px;
+}
+
+button {
+  font-family: arian-lt-w20-light, sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
