@@ -11,6 +11,7 @@ import CardContent from '../../components/CardContent'
 import Button from '../../components/Button'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
+import Loader from '../../components/Loader'
 
 import useEarnings from '../../hooks/useEarnings'
 import useFarm from '../../hooks/useFarm'
@@ -21,6 +22,17 @@ import Harvest from './components/Harvest'
 
 import { chadletsCards } from '../../yam/lib/constants.js';
 
+import greekRare from '../../assets/img/greek-rare.png'
+import greekCommon from '../../assets/img/greek-common.png'
+import gradientBg from '../../assets/img/blue-pink-gradient.png'
+import wavyClipArt from '../../assets/img/wavy-clipart.png'
+
+import cardImg1 from '../../assets/img/cards/1.gif'
+import cardImg2 from '../../assets/img/cards/2.gif'
+import cardImg3 from '../../assets/img/cards/3.gif'
+import cardImg4 from '../../assets/img/cards/4.gif'
+import cardImg5 from '../../assets/img/cards/5.gif'
+import cardImg6 from '../../assets/img/cards/6.gif'
 
 const Farm: React.FC = () => {
   const { farmId } = useParams()
@@ -63,52 +75,77 @@ const Farm: React.FC = () => {
 
   const rows = chunk(chadletsCards, 3);
 
+  const cardImages = [
+    cardImg1,
+    cardImg2,
+    cardImg3,
+    cardImg4,
+    cardImg5,
+    cardImg6
+  ]
   return (
     <>
-      <PageHeader
+      {false && <PageHeader
         icon={icon}
         subtitle={`Deposit ${depositTokenName} and earn ${earnTokenName}`}
         title={name}
-      />
-      <StyledFarm>
+      />}
+      {false && <StyledFarm>
         <StyledCardsWrapper>
           <StyledCardWrapper>
             <Harvest poolContract={contract} />
           </StyledCardWrapper>
         </StyledCardsWrapper>
         <Spacer size="lg" />
-      </StyledFarm>
+      </StyledFarm>}
 
       <StyledCards>
-        {rows.map((cardRow, i) => (
+        {!!rows[0].length ? rows.map((cardRow, i) => (
           (i === 0 || i === 1) && (<StyledRow key={i}>
-            {cardRow.map((card, j) => (
-              <React.Fragment key={j}>
-
-              {/* TODO: Extract into its own component */ }
-                <Card>
-                  <CardContent>
+            <StyledRowHeader>
+              {i === 0 && 
+                <React.Fragment>
+                  <StyledGreekImage src={greekRare} />
+                  <StyledHeading>
+                    420 Chadlets
+                  </StyledHeading>
+                  <StyledWavyRare src={wavyClipArt} />
+                </React.Fragment>
+              }
+              {i === 1 &&
+                <React.Fragment>
+                  <StyledGreekImage src={greekCommon} />
+                  <StyledHeading>
+                    69 Chadlets
+                  </StyledHeading>
+                  <StyledWavyCommon src={wavyClipArt} />
+                </React.Fragment>
+              }
+            </StyledRowHeader>
+            <StyledCardsRow>
+              {cardRow.map((card, j) => (
+                <StyledCard key={j}>
+                  <StyledCardContent>
                     <StyledContent>
-                      <StyledTitle>{card.name}</StyledTitle>
-                      <p>{card.description}</p>
-                      {card.pool.points} Chadlets
-                      <img src={card.image} />
-                      </StyledContent>
-                      <StyledCardActions>
-                        <Button
-                          onClick={() => onRedeem(i + 1)}
-                          text="Redeem Card"
-                          disabled={!earnings.toNumber()}
-                        />
-                      </StyledCardActions>
-                  </CardContent>
-                </Card>
-
-                {(j === 0 || j === 1) && <StyledSpacer />}
-              </React.Fragment>
-            ))}
+                      <StyledCardImage src={cardImages[j]} />
+                    </StyledContent>
+                    <StyledCardActions>
+                      <Button
+                        onClick={() => onRedeem(i + 1)}
+                        text="Redeem Card"
+                        disabled={!earnings.toNumber()}
+                      />
+                    </StyledCardActions>
+                  </StyledCardContent>
+                </StyledCard>
+              ))}
+            </StyledCardsRow>
           </StyledRow>)
-        ))}
+        )) : (
+          <StyledLoadingWrapper>
+            <Loader text="Loading.." />
+          </StyledLoadingWrapper>
+        )}
       </StyledCards>
     </>
   )
@@ -139,6 +176,13 @@ const StyledCards = styled.div`
   }
 `
 
+const StyledLoadingWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`
+
 const StyledRow = styled.div`
   display: flex;
   position: relative;
@@ -151,7 +195,6 @@ const StyledRow = styled.div`
     align-items: center;
   }
 `
-
 const StyledCardWrapper = styled.div`
   display: flex;
   width: calc((900px - ${props => props.theme.spacing[4]}px * 2) / 3);
@@ -195,5 +238,70 @@ const StyledCardsWrapper = styled.div`
     align-items: center;
   }
 `
+const StyledRowHeader = styled.div`
+  height: 164px;
+  width: 890px;
+  position: absolute;
+  right: 0;
+  top: -230px;
+  background-size: 100% 100%;
+  background-image: url(${gradientBg});
+`
+
+const StyledHeading = styled.div`
+  display: block;
+  text-align: right;
+  text-shadow: rgba(0, 0, 0, 0.298039) 0px 5px 0px;
+  font-size: 75px;
+  color: #02F2F2;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  z-index: 2;
+`
+
+const StyledGreekImage = styled.img`
+  position: absolute;
+  left: -120px;
+  top: -80px;
+  width: 400px;
+  transform: rotate(-10deg);
+`
+const StyledWavyRare = styled.img`
+  position: absolute;
+  right: -30px;
+  top: 0px;
+  transform: rotate(-210deg);
+  width: 263px;
+  height: 204px;
+  object-fit: cover;
+`
+const StyledWavyCommon = styled.img`
+  position: absolute;
+  right: -30px;
+  top: 0px;
+  transform: rotate(110deg);
+  width: 223px;
+  height: 284px;
+  object-fit: cover;
+`
+
+const StyledCardContent = styled.div`
+`
+
+const StyledCardsRow = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+
+const StyledCardImage = styled.img`
+  width: 100%;
+`
+const StyledCard = styled.div`
+  width: 30%;
+`
+
+
 
 export default Farm
