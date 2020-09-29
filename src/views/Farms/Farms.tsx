@@ -29,11 +29,11 @@ const Farms: React.FC = () => {
       {!!account ? (
         <>
           <Route exact path={path}>
-            <FarmCards />
-          </Route>
-          <Route path={`${path}/:farmId`}>
             <Farm />
           </Route>
+          {false && <Route path={`${path}/:farmId`}>
+            <Farm />
+          </Route>}
         </>
       ) : (
         <div style={{
