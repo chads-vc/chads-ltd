@@ -21,7 +21,6 @@ import useModal from './hooks/useModal'
 
 import FAQ from './views/FAQ'
 import Farms from './views/Farms'
-import Gallery from './views/Gallery'
 import Home from './views/Home'
 
 import theme from './theme'
@@ -50,9 +49,6 @@ const App: React.FC = () => {
           <Route path="/farms">
             <Farms />
           </Route>
-          <Route path="/gallery">
-            <Gallery />
-          </Route>
           <Route path="/faq">
             <FAQ />
           </Route>
@@ -67,7 +63,7 @@ const Providers: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <UseWalletProvider
-        chainId={4}
+        chainId={1}
         connectors={{
           walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
         }}
