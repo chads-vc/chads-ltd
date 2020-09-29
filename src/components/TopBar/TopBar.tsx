@@ -7,6 +7,7 @@ import Logo from '../Logo'
 import AccountButton from './components/AccountButton'
 import StakeButton from './components/StakeButton'
 import WalletButton from './components/WalletButton'
+import GalleryButton from './components/GalleryButton'
 
 import ChadletButton from './components/ChadletsButton'
 import Nav from './components/Nav'
@@ -50,7 +51,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
             <StyledActionsButtonWrapper>
               <StakeButton text="Stake LP Tokens" backgroundGradient="first" customColor="purple" poolContract={contract}/>
               <ChadletButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" poolContract = {contract}/>
-              <AccountButton text="My NFTs" backgroundGradient="third" customColor="pink" />
+              <GalleryButton text="My NFTs" backgroundGradient="third" customColor="pink" />
             </StyledActionsButtonWrapper>
           </StyledActionsMenu>
         </StyledTopBarInner>
