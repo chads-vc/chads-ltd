@@ -69,7 +69,7 @@ const StyledTitle = styled.div`
   text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px, rgba(0, 0, 0, 0.6) -1px -1px 1px;
   color: #02F252;
   position: absolute;
-  top: 105px;
+  top: 97px;
   left: 43px;
   z-index: 1;
 `
@@ -79,7 +79,7 @@ const StyledSubtitle = styled.div`
   color: #02F2F2;
   text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px, rgba(0, 0, 0, 0.6) -1px -1px 1px;
   position: absolute;
-  top: 128px;
+  top: 120px;
   left: 46px;
   z-index: 1;
 `
