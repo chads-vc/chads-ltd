@@ -96,7 +96,7 @@ const Farm: React.FC = () => {
                       </StyledContent>
                       <StyledCardActions>
                         <Button
-                          onClick={() => onRedeem('1')} // TODO: add generic card ids...
+                          onClick={() => onRedeem(i + 1)}
                           text="Redeem Card"
                           disabled={!earnings.toNumber()}
                         />
