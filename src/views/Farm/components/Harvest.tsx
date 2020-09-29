@@ -16,6 +16,10 @@ import useRedeem from '../../../hooks/useRedeem'
 
 import { getDisplayBalance } from '../../../utils/formatBalance'
 
+import useModal from '../../../hooks/useModal'
+
+import CoppedModal from '../../../components/CoppedModal'
+
 interface HarvestProps {
   poolContract: Contract
 }
@@ -25,6 +29,7 @@ const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
   const earnings = useEarnings(poolContract)
   const { onReward } = useReward(poolContract)
   const { onRedeem } = useRedeem(poolContract)
+  const [onPresentCoppedModal] = useModal(<CoppedModal />)
 
   return (
     <Card>
@@ -37,7 +42,10 @@ const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
           </StyledCardHeader>
           <StyledCardActions>
             <Button
-              onClick={() => onRedeem('1')} // TODO: add generic card ids...
+              onClick={() => {
+                // TODO: add generic card ids...
+                onRedeem('1').then(txnHash => onPresentCoppedModal())
+              }} 
               text="Redeem Card"
             />
             { /*<Button onClick={onReward} text="Harvest" disabled={!earnings.toNumber()} />*/ }
