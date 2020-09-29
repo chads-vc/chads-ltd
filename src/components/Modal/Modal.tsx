@@ -45,10 +45,10 @@ const StyledResponsiveWrapper = styled.div`
 `
 
 const StyledModal = styled.div`
-  background: #28D7E9BA;
+  background: #28D7E9EE;
   border: #e207deba;
   border-radius: 5px;
-  box-shadow: inset 1px 1px 0px #28D7E9BA;
+  box-shadow: inset 1px 1px 0px #28D7E9EE;
   display: flex;
   flex-direction: column;
   position: relative;

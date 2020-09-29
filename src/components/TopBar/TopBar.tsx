@@ -6,15 +6,34 @@ import Logo from '../Logo'
 
 import AccountButton from './components/AccountButton'
 import StakeButton from './components/StakeButton'
-import Button from '../../components/Button'
-
+import WalletButton from './components/WalletButton'
 import Nav from './components/Nav'
+
+import useFarm from '../../hooks/useFarm'
 
 interface TopBarProps {
   onPresentMobileMenu: () => void
 }
 
 const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
+
+  const farmId = "chads_eth_uni_lp";
+  const {
+    contract,
+    depositToken,
+    depositTokenAddress,
+    earnToken,
+    name,
+    icon,
+  } = useFarm(farmId) || {
+    depositToken: '',
+    depositTokenAddress: '',
+    earnToken: '',
+    name: '',
+    icon: ''
+  }
+
+
   return (
     <StyledTopBar>
       <Container size="lg">
@@ -24,14 +43,12 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
           </StyledLogoWrapper>
           <StyledActionsMenu>
             <StyledWalletButtonWrapper>
-              <AccountButton text="Wallet" backgroundGradient="all" customColor="blue" />
+              <WalletButton text="Unlock" backgroundGradient="all" customColor="blue" />
             </StyledWalletButtonWrapper>
             <StyledActionsButtonWrapper>
-              <StakeButton text="Staked" backgroundGradient="first" customColor="purple" />
-              <AccountButton text="Chadlets" backgroundGradient="second" customColor="blue" />
-              <StyledButton>
-                <Button text="Gallery" to="/gallery" backgroundGradient="third" customColor="pink" size="sm" />
-              </StyledButton>
+              <StakeButton text="Stake LP Tokens" backgroundGradient="first" customColor="purple" poolContract={contract}/>
+              <AccountButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" />
+              <AccountButton text="My Cards" backgroundGradient="third" customColor="pink" />
             </StyledActionsButtonWrapper>
           </StyledActionsMenu>
         </StyledTopBarInner>
