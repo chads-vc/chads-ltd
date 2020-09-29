@@ -31,12 +31,12 @@ import greekCommon from '../../assets/img/greek-common.png'
 import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
 
-import cardImg1 from '../../assets/img/cards/1.gif'
-import cardImg2 from '../../assets/img/cards/2.gif'
-import cardImg3 from '../../assets/img/cards/3.gif'
-import cardImg4 from '../../assets/img/cards/4.gif'
-import cardImg5 from '../../assets/img/cards/5.gif'
-import cardImg6 from '../../assets/img/cards/6.gif'
+// import cardImg1 from '../../assets/img/cards/1.gif'
+// import cardImg2 from '../../assets/img/cards/2.gif'
+// import cardImg3 from '../../assets/img/cards/3.gif'
+// import cardImg4 from '../../assets/img/cards/4.gif'
+// import cardImg5 from '../../assets/img/cards/5.gif'
+// import cardImg6 from '../../assets/img/cards/6.gif'
 
 import buyButtonActive from '../../assets/img/buy-button-active.gif'
 import buyButtonDisabled from '../../assets/img/buy-button-disabled.png'
@@ -83,14 +83,14 @@ const Farm: React.FC = () => {
 
   const rows = chunk(chadletsCards, 3);
 
-  const cardImages = [
-    cardImg1,
-    cardImg2,
-    cardImg3,
-    cardImg4,
-    cardImg5,
-    cardImg6
-  ]
+  // const cardImages = [
+  //   cardImg1,
+  //   cardImg2,
+  //   cardImg3,
+  //   cardImg4,
+  //   cardImg5,
+  //   cardImg6
+  // ]
   return (
     <>
       {false && <PageHeader

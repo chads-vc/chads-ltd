@@ -6,7 +6,6 @@ import FullWidthModal, { FullWidthModalProps } from '../FullWidthModal'
 import ModalActions from '../ModalActions'
 import ModalContent from '../ModalContent'
 import ModalTitle from '../ModalTitle'
-import cardSam from '../../assets/img/card-sam.gif'
 import coppedSpinner from '../../assets/img/copped-spinner.gif'
 import wavyClipart from '../../assets/img/wavy-clipart.png'
 
@@ -22,7 +21,7 @@ const CoppedModal: React.FC<FullWidthModalProps> = ({ onDismiss }) => {
           <StyledWavyClipartWrapper>
             <StyledWavyClipart src={wavyClipart} />
           </StyledWavyClipartWrapper>
-          <StyledCard src={cardSam}/>
+          <StyledCard src="https://api.chads.vc/img/1.gif"/>
           <StyledCoppedSpinnerWrapper>
             <StyledCoppedSpinner src={coppedSpinner} />
           </StyledCoppedSpinnerWrapper>
