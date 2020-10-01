@@ -1,12 +1,8 @@
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo, useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 
-import { useParams } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
-
-import Card from '../../components/Card'
-import CardContent from '../../components/CardContent'
 
 import Button from '../../components/Button'
 import PageHeader from '../../components/PageHeader'
@@ -18,25 +14,19 @@ import useEarnings from '../../hooks/useEarnings'
 import useFarm from '../../hooks/useFarm'
 import useRedeem from '../../hooks/useRedeem'
 import useModal from '../../hooks/useModal'
-import { getContract } from '../../utils/erc20'
 
 import Harvest from './components/Harvest'
 
 import CoppedModal from '../../components/CoppedModal'
 
+import useYam from '../../hooks/useYam'
 import { chadletsCards } from '../../yam/lib/constants.js';
+import { getTotalCopped } from '../../yamUtils';
 
 import greekRare from '../../assets/img/greek-rare.png'
 import greekCommon from '../../assets/img/greek-common.png'
 import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
-
-// import cardImg1 from '../../assets/img/cards/1.gif'
-// import cardImg2 from '../../assets/img/cards/2.gif'
-// import cardImg3 from '../../assets/img/cards/3.gif'
-// import cardImg4 from '../../assets/img/cards/4.gif'
-// import cardImg5 from '../../assets/img/cards/5.gif'
-// import cardImg6 from '../../assets/img/cards/6.gif'
 
 import buyButtonActive from '../../assets/img/buy-button-active.gif'
 import buyButtonDisabled from '../../assets/img/buy-button-disabled.png'
@@ -58,15 +48,14 @@ const Farm: React.FC = () => {
     icon: ''
   }
 
+  const [totalCopped, setTotalCopped] = useState([]);
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, []);
-
-  const { ethereum } = useWallet()
-
-  const tokenContract = useMemo(() => {
-    return getContract(ethereum as provider, depositTokenAddress)
-  }, [ethereum, depositTokenAddress])
+  
+  const { account } = useWallet()
+  const yam = useYam()
 
   const { onRedeem } = useRedeem(contract)
   const [onPresentCoppedModal1] = useModal(<CoppedModal cardId={1} />)
@@ -77,6 +66,7 @@ const Farm: React.FC = () => {
   const [onPresentCoppedModal6] = useModal(<CoppedModal cardId={6} />)
 
   const earnings = useEarnings(contract)
+  const rows = chunk(chadletsCards, 3);
 
   const depositTokenName = useMemo(() => {
     return depositToken.toUpperCase()
@@ -85,17 +75,22 @@ const Farm: React.FC = () => {
   const earnTokenName = useMemo(() => {
     return earnToken.toUpperCase()
   }, [earnToken])
+ 
+  const fetchTotalCopped = useCallback(async () => {
+    let result = [];
+    for (let i = 1; i <= chadletsCards.length; i++) {
+      const cardCopped = await getTotalCopped(yam, i)
+      result.push(cardCopped.toNumber());
+    }
+    setTotalCopped(result);
+  }, [yam, setTotalCopped])
 
-  const rows = chunk(chadletsCards, 3);
+  useEffect(() => {
+    if (yam) {
+      fetchTotalCopped()
+    }
+  }, [yam, fetchTotalCopped])
 
-  // const cardImages = [
-  //   cardImg1,
-  //   cardImg2,
-  //   cardImg3,
-  //   cardImg4,
-  //   cardImg5,
-  //   cardImg6
-  // ]
   return (
     <>
       {false && <PageHeader
@@ -137,7 +132,6 @@ const Farm: React.FC = () => {
             </StyledRowHeader>
             <StyledCardsRow>
               {cardRow.map((card, j) => {
-                console.log(card);
                 return (<StyledCard key={j}>
                   <StyledCardContent>
                     <StyledContent>
@@ -164,7 +158,7 @@ const Farm: React.FC = () => {
                         disabled={earnings.toNumber() < card.pool.points}
                       />
                       <StyledBuyButton src={(earnings.toNumber() < card.pool.points) ? buyButtonDisabled : buyButtonActive} />
-                      <DroppedCoppedLabel dropped={i === 0 ? 100 : 1000} copped={0} />
+                      { <DroppedCoppedLabel dropped={i === 0 ? 100 : 1000} copped={totalCopped[(Math.abs(i-1)*3+j)]} /> }
                     </StyledCardActions>
                   </StyledCardContent>
                 </StyledCard>)
