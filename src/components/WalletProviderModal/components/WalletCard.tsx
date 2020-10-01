@@ -27,4 +27,5 @@ const WalletCard: React.FC<WalletCardProps> = ({ icon, onConnect, title }) => (
   </Card>
 )
 
+
 export default WalletCard

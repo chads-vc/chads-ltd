@@ -48,6 +48,9 @@ const StyledResponsiveWrapper = styled.div`
     max-height: calc(100% - ${props => props.theme.spacing[4]}px);
     animation: ${mobileKeyframes} .3s forwards ease-out;
   }
+  @media (max-width: 768px) {
+    max-height: 100%;
+  }
 `
 
 const StyledModal = styled.div`

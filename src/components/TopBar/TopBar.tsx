@@ -66,8 +66,12 @@ const StyledButton = styled.div`
 
 const StyledLogoWrapper = styled.div`
   width: 377px;
-  @media (max-width: 400px) {
-    width: auto;
+  @media (max-width: 450px) {
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    max-width: 377px;
+    margin: auto;
   }
 `
 
@@ -78,6 +82,13 @@ const StyledWalletButtonWrapper = styled.div`
   max-width: 170px;
   display: block;
   margin: 8px 0 12px auto;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 30px 0 0 0;
+  }
+  @media (max-width: 450px) {
+    margin-top: 50px;
+  }
 `
 
 const StyledActionsMenu = styled.div`
@@ -85,6 +96,12 @@ const StyledActionsMenu = styled.div`
   width: 500px;
   padding-top: 25px;
   display: block;
+  @media (max-width: 768px) {
+    padding-top: 80px;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+  }
 `
 
 const StyledSeriesButtonsWrapper = styled.div`
@@ -100,6 +117,14 @@ const StyledActionsButtonWrapper = styled.div`
   margin: 35px 0 12px auto;
   transform: scale(1.15);
   transform-origin: 100% 50%;
+  @media (max-width: 768px) {
+    transform: scale(1);
+    display: flex;
+    margin: 80px auto;
+    max-width: 100%;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
 `
 
 const StyledTopBarInner = styled.div`
@@ -107,14 +132,16 @@ const StyledTopBarInner = styled.div`
   display: flex;
   height: ${props => props.theme.topBarSize}px;
   justify-content: space-between;
-  max-width: ${props => props.theme.siteWidth}px;
   width: 100%;
+  @media (max-width: 768px) {
+    flex-wrap: wrap
+  }
 `
 const StyledNavWrapper = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  @media (max-width: 400px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `
@@ -124,9 +151,9 @@ const StyledAccountButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 320px;
-  @media (max-width: 400px) {
+  @media (max-width: 768px) {
     justify-content: center;
-    width: auto;
+    width: 100%;
   }
 `
 
@@ -137,7 +164,7 @@ const StyledMenuButton = styled.button`
   outline: 0;
   padding: 0;
   display: none;
-  @media (max-width: 400px) {
+  @media (max-width: 768px) {
     align-items: center;
     display: flex;
     height: 44px;

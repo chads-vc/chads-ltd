@@ -59,6 +59,10 @@ const StyledWavyClipartWrapper = styled.div`
   left: -300px;
   overflow: hidden;
   transform: rotate(8.209103096004185deg);
+  @media (max-width: 768px) {
+    width: 140vw;
+    height: 160vw;
+  }
 `
 const StyledWavyClipart = styled.img`
   position: absolute;
@@ -86,6 +90,12 @@ const StyledCoppedSpinnerWrapper = styled.div`
   height: 300px;
   overflow: hidden;
   transform: rotate(338.15541147928184deg);
+  @media (max-width: 768px) {
+    top: 0;
+    left: -40vw;
+    width: 120vw;
+    height: 70vw;
+  }
 `
 
 const StyledCoppedSpinner = styled.img`
@@ -94,6 +104,11 @@ const StyledCoppedSpinner = styled.img`
   width: 920px;
   top: 60px;
   right: -170px;
+  @media (max-width: 768px) {
+    width: 150vw;
+    top: 0px;
+    right: -100px;
+  }
 `
 
 const StyledCardWrapper = styled.div`

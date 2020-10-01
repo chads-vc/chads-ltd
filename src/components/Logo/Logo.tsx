@@ -38,11 +38,13 @@ const Logo: React.FC<LogoProps> = ({logotypeIndex}) => {
 }
 
 const StyledCamera = styled.img`
-  top: 3px;
   width: 92px;
   height: 78px;
-  left: 133px;
   z-index: 3;
+  @media (max-width: 450px) {
+    position: relative;
+    height: auto;
+  }
 `
 const StyledLogoType = styled.img`
   position: absolute;
@@ -50,6 +52,11 @@ const StyledLogoType = styled.img`
   height: 100px;
   top: 30px;
   z-index: 2;
+  @media (max-width: 450px) {
+    width: calc(100% + 48px);
+    height: auto;
+    top: 50px;
+  }
 `
 
 const StyledLogo = styled(Link)`
@@ -62,6 +69,7 @@ const StyledLogo = styled(Link)`
   padding: 0;
   text-decoration: none;
   position: relative;
+
 `
 
 const StyledTitle = styled.div`
@@ -72,6 +80,13 @@ const StyledTitle = styled.div`
   top: 97px;
   left: 43px;
   z-index: 1;
+  @media (max-width: 450px) {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top: 30vw;
+  }
 `
 const StyledSubtitle = styled.div`
   font-size: 12px;
@@ -80,8 +95,14 @@ const StyledSubtitle = styled.div`
   text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px, rgba(0, 0, 0, 0.6) -1px -1px 1px;
   position: absolute;
   top: 120px;
-  left: 46px;
+  left: 43px;
   z-index: 1;
+  @media (max-width: 450px) {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top: 36vw;
+  }
 `
 
 export default Logo

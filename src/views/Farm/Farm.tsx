@@ -197,6 +197,7 @@ const StyledCards = styled.div`
   margin-top: 220px;
   max-width: 980px;
   @media (max-width: 768px) {
+    margin-top: 350px;
     width: 100%;
   }
 `
@@ -216,8 +217,12 @@ const StyledRow = styled.div`
   flex-flow: row wrap;
   @media (max-width: 768px) {
     width: 100%;
+    margin-bottom: 350px;
     flex-flow: column nowrap;
     align-items: center;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 310px;
   }
 `
 const StyledCardWrapper = styled.div`
@@ -271,6 +276,15 @@ const StyledRowHeader = styled.div`
   top: -230px;
   background-size: 100% 100%;
   background-image: url(${gradientBg});
+  @media (max-width: 1024px) {
+    width: calc(100% - 50px);
+    height: 20vw;
+    padding-top: 80px;
+    display: flex;
+    margin: 25px;
+    flex-wrap: wrap;
+  }
+
 `
 
 const StyledHeading = styled.div`
@@ -284,6 +298,11 @@ const StyledHeading = styled.div`
   bottom: 0px;
   right: 10px;
   z-index: 2;
+  @media (max-width: 1024px) {
+    font-size: 8vw;
+    bottom: 8px;
+    right: 20px;
+   }
 `
 
 const StyledGreekImage = styled.img`
@@ -292,6 +311,12 @@ const StyledGreekImage = styled.img`
   top: -80px;
   width: 400px;
   transform: rotate(-10deg);
+  @media (max-width: 1024px) {
+    left: -6vw;
+    top: -6vw;
+    width: 46vw;
+    z-index: 2;
+  }
 `
 const StyledWavyRare = styled.img`
   position: absolute;
@@ -301,6 +326,13 @@ const StyledWavyRare = styled.img`
   width: 263px;
   height: 204px;
   object-fit: cover;
+  @media (max-width: 1024px) {
+    transform: rotate(-190deg);
+    width: 50vw;
+    height: 30vw;
+    right: 10px;
+    top: -20px;
+  }
 `
 const StyledWavyCommon = styled.img`
   position: absolute;
@@ -310,6 +342,13 @@ const StyledWavyCommon = styled.img`
   width: 223px;
   height: 284px;
   object-fit: cover;
+  @media (max-width: 1024px) {
+    transform: rotate(110deg);
+    width: 183px;
+    height: 164px;
+    right: 10px;
+    top: -30px;
+  }
 `
 
 const StyledCardContent = styled.div`
@@ -318,6 +357,22 @@ const StyledCardContent = styled.div`
 const StyledCardsRow = styled.div`
   display: flex;
   justify-content: space-around;
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    margin-top: 10vw;
+  }
+  @media (max-width: 768px) {
+    margin-top: 3vw;
+  }
+  @media (max-width: 512px) {
+    margin-top: -3vw;
+  }
+  @media (max-width: 400px) {
+    margin-top: -40px;
+  }
+  @media (max-width: 350px) {
+    margin-top: -60px;
+  }
 `
 
 const StyledCardImage = styled.img`
@@ -325,6 +380,10 @@ const StyledCardImage = styled.img`
 `
 const StyledCard = styled.div`
   width: 30%;
+  @media (max-width: 520px) {
+    width: 100%;
+    padding: 25px;
+  }
 `
 
 const StyledBuyButton = styled.img`

@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 
+import styled from 'styled-components'
+
 import farmer from '../../assets/img/farmer.png'
 
 import Button from '../../components/Button'
@@ -36,23 +38,30 @@ const Farms: React.FC = () => {
           </Route>}
         </>
       ) : (
-        <div style={{
-          alignItems: 'center',
-          display: 'flex',
-          flex: 1,
-          justifyContent: 'center',
-        }}>
+        <StyledDiv>
           <Button
             onClick={onPresentWalletProviderModal}
             customColor="pink"
             text="Unlock Wallet"
           />
-        </div>
+        </StyledDiv>
       )}
       </Page>
     </Switch>
   )
 }
 
+const StyledDiv = styled.div`
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  @media (max-width: 1024px) {
+    margin-top: 80px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 120px;
+  }
+`
 
 export default Farms

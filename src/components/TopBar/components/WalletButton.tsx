@@ -53,6 +53,9 @@ const WalletButton: React.FC<WalletButtonProps> = (props) => {
 
 const StyledWalletButton = styled.div`
   flex: 1;
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `
 
 export default WalletButton
