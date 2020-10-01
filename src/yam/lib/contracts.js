@@ -28,6 +28,7 @@ import SNXPoolJson from '../clean_build/contracts/YAMSNXPool.json';
 import LINKPoolJson from '../clean_build/contracts/YAMLINKPool.json';
 
 import CHADSPoolJson from '../clean_build/contracts/ChadletsGenesisPool.json';
+import CHADSLtdJson from '../clean_build/contracts/ChadsLtd.json';
 
 import IncJson from '../clean_build/contracts/YAMIncentivizer.json';
 
@@ -74,10 +75,10 @@ export class Contracts {
     this.yam_ycrv_uni_lp = new this.web3.eth.Contract(ERC20Json.abi);
 
     this.chads_eth_uni_lp = new this.web3.eth.Contract(ERC20Json.abi);
+    this.chadsltd = new this.web3.eth.Contract(CHADSLtdJson.abi);
 
     this.erc20 = new this.web3.eth.Contract(ERC20Json.abi);
     this.pool = new this.web3.eth.Contract(LENDPoolJson.abi);
-
 
     this.yamV2 = new this.web3.eth.Contract(YAMv2Json.abi);
     this.yamV2migration = new this.web3.eth.Contract(YAMv2MigrationJson.abi);
@@ -119,7 +120,8 @@ export class Contracts {
       { contract: this.yamV2, json: YAMv2Json },
       { contract: this.yamV2migration, json: YAMv2MigrationJson },
 
-      { contract: this.chads_pool, json: CHADSPoolJson }
+      { contract: this.chads_pool, json: CHADSPoolJson },
+      { contract: this.chadsltd, json: CHADSLtdJson }
     ]
 
     contracts.forEach(contract => this.setContractProvider(

@@ -219,3 +219,11 @@ export const getMigrationEndTime = async (yam) => {
 export const getV2Supply = async (yam) => {
   return new BigNumber(await yam.contracts.yamV2.methods.totalSupply().call())
 }
+
+export const getCoppedByAccount = async (yam, account, cardId) => {
+  return yam.toBigN(await yam.contracts.chadsltd.methods.balanceOf(account, cardId).call())
+}
+
+export const getTotalCopped = async (yam, cardId) => {
+  return yam.toBigN(await yam.contracts.chadsltd.methods.totalSupply(cardId).call())
+}
