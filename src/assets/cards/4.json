@@ -1,5 +1,7 @@
 {
 	"pool": { "name": "chadlets", "points": 420 },
+	"max_supply": 100,
+	"index": 4,
 	"external_url": "https://api.chads.vc/cards/4",
 	"image": "https://api.chads.vc/img/4.gif",
 	"name": "Andre Cronje Rare",

@@ -6,6 +6,7 @@ import card3 from '../../assets/cards/3.json'
 import card4 from '../../assets/cards/4.json'
 import card5 from '../../assets/cards/5.json'
 import card6 from '../../assets/cards/6.json'
+import card7 from '../../assets/cards/7.json'
 
 export const SUBTRACT_GAS_LIMIT = 100000;
 
@@ -52,5 +53,6 @@ export const chadletsCards = [
   card3,
   card4,
   card5,
-  card6
+  card6,
+  card7
 ];

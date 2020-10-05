@@ -64,9 +64,11 @@ const Farm: React.FC = () => {
   const [onPresentCoppedModal4] = useModal(<CoppedModal cardId={4} />)
   const [onPresentCoppedModal5] = useModal(<CoppedModal cardId={5} />)
   const [onPresentCoppedModal6] = useModal(<CoppedModal cardId={6} />)
+  const [onPresentCoppedModal7] = useModal(<CoppedModal cardId={7} />)
 
   const earnings = useEarnings(contract)
   const rows = chunk(chadletsCards, 3);
+  console.log(rows);
 
   const depositTokenName = useMemo(() => {
     return depositToken.toUpperCase()
@@ -109,19 +111,10 @@ const Farm: React.FC = () => {
 
       <StyledCards>
         {!!rows[0].length ? rows.map((cardRow, i) => (
-          (i === 0 || i === 1) && (<StyledRow key={i}>
+          (<StyledRow key={i}>
             <StyledRowHeader>
               {i === 0 && 
-                <React.Fragment>
-                  <StyledGreekImage src={greekRare} />
-                  <StyledHeading>
-                    420 Chadlets
-                  </StyledHeading>
-                  <StyledWavyRare src={wavyClipArt} />
-                </React.Fragment>
-              }
-              {i === 1 &&
-                <React.Fragment>
+               	<React.Fragment>
                   <StyledGreekImage src={greekCommon} />
                   <StyledHeading>
                     69 Chadlets
@@ -129,36 +122,48 @@ const Farm: React.FC = () => {
                   <StyledWavyCommon src={wavyClipArt} />
                 </React.Fragment>
               }
+              {i > 0 &&
+                 <React.Fragment>
+                  <StyledGreekImage src={greekRare} />
+                  <StyledHeading>
+                    420 Chadlets
+                  </StyledHeading>
+                  <StyledWavyRare src={wavyClipArt} />
+                </React.Fragment>
+	       }
             </StyledRowHeader>
             <StyledCardsRow>
               {cardRow.map((card, j) => {
                 return (<StyledCard key={j}>
                   <StyledCardContent>
                     <StyledContent>
-                      <StyledCardImage src={`https://api.chads.vc/img/${(Math.abs(i-1)*3+j)+1}.gif`} />
+                      <StyledCardImage src={`https://api.chads.vc/img/${card.index}.gif`} />
                     </StyledContent>
                     <StyledCardActions>
                       <Button
                         onClick={() => {
-                          if ((Math.abs(i-1)*3+j)+1 == 1) {
+                          if (card.index == 1) {
                             onRedeem("1").then(txnHash => onPresentCoppedModal1());
-                          } else if ((Math.abs(i-1)*3+j)+1 == 2) {
+                          } else if (card.index == 2) {
                             onRedeem("2").then(txnHash => onPresentCoppedModal2());
-                          } else if ((Math.abs(i-1)*3+j)+1 == 3) {
+                          } else if (card.index == 3) {
                             onRedeem("3").then(txnHash => onPresentCoppedModal3());
-                          } else if ((Math.abs(i-1)*3+j)+1 == 4) {
+                          } else if (card.index == 4) {
                             onRedeem("4").then(txnHash => onPresentCoppedModal4());
-                          } else if ((Math.abs(i-1)*3+j)+1 == 5) {
+                          } else if (card.index == 5) {
                             onRedeem("5").then(txnHash => onPresentCoppedModal5());
-                          } else if ((Math.abs(i-1)*3+j)+1 == 6) {
+                          } else if (card.index == 6) {
                             onRedeem("6").then(txnHash => onPresentCoppedModal6());
+                          } else if (card.index == 7) {
+                            onRedeem("7").then(txnHash => onPresentCoppedModal7());
                           }
+
                         }}
                         text=""
-                        disabled={earnings.toNumber() < card.pool.points}
+                        disabled={(earnings.toNumber() < card.pool.points) || (totalCopped[card.index-1] >= card.max_supply)} 
                       />
                       <StyledBuyButton src={(earnings.toNumber() < card.pool.points) ? buyButtonDisabled : buyButtonActive} />
-                      { <DroppedCoppedLabel dropped={i === 0 ? 100 : 1000} copped={totalCopped[(Math.abs(i-1)*3+j)]} /> }
+                      { <DroppedCoppedLabel dropped={card.max_supply} copped={totalCopped[card.index-1]} /> }
                     </StyledCardActions>
                   </StyledCardContent>
                 </StyledCard>)
@@ -182,6 +187,7 @@ function chunk(array, size) {
     return array;
   }
   return [firstChunk].concat(chunk(array.slice(size, array.length), size)); 
+  
 }
 
 const StyledCardActions = styled.div`
@@ -357,6 +363,7 @@ const StyledCardContent = styled.div`
 const StyledCardsRow = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 100%;
   @media (max-width: 1024px) {
     flex-wrap: wrap;
     margin-top: 10vw;

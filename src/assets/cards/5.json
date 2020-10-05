@@ -1,5 +1,7 @@
 {
 	"pool": { "name": "chadlets", "points": 420 },
+	"max_supply": 100,
+	"index": 5,
 	"external_url": "https://api.chads.vc/cards/5",
 	"image": "https://api.chads.vc/img/5.gif",
 	"name": "Degen Spartan Rare",

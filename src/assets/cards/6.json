@@ -1,5 +1,7 @@
 {
 	"pool": { "name": "chadlets", "points": 420 },
+	"max_supply": 100,
+	"index": 6,
 	"external_url": "https://api.chads.vc/cards/6",
 	"image": "https://api.chads.vc/img/6.gif",
 	"name": "Benn Godenzi Rare",

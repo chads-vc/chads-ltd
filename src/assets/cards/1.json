@@ -1,5 +1,7 @@
 {
 	"pool": { "name": "chadlets", "points": 69 },
+	"max_supply": 1000,
+	"index": 1,
 	"external_url": "https://api.chads.vc/cards/1",
 	"image": "https://api.chads.vc/img/1.gif",
 	"name": "Sam Bankman-Fried Common",
