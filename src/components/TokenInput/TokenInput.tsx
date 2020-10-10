@@ -19,11 +19,11 @@ const TokenInput: React.FC<TokenInputProps> = ({
 }) => {
   return (
     <StyledTokenInput>
-      <StyledMaxText>{max.toLocaleString()} {symbol} Available</StyledMaxText>
+      <StyledMaxText>{max.toLocaleString()} CHADS/ETH LP TOKENS Available</StyledMaxText>
       <Input
         endAdornment={(
           <StyledTokenAdornmentWrapper>
-            <StyledTokenSymbol>{symbol}</StyledTokenSymbol>
+            <StyledTokenSymbol>CHADS/ETH LP TOKENS</StyledTokenSymbol>
             <StyledSpacer />
             <div>
               <Button size="sm" text="Max" onClick={onSelectMax} />
@@ -64,7 +64,7 @@ const StyledMaxText = styled.div`
   font-size: 14px;
   font-weight: 700;
   height: 44px;
-  justify-content: flex-end;
+  justify-content: center;
 `
 
 const StyledTokenSymbol = styled.span`

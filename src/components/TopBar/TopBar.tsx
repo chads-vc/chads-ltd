@@ -49,7 +49,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
               <WalletButton text="Unlock" backgroundGradient="all" customColor="blue" />
             </StyledWalletButtonWrapper>
             <StyledActionsButtonWrapper>
-              <StakeButton text="Stake LP Tokens" backgroundGradient="first" customColor="purple" poolContract={contract}/>
+              <StakeButton text="Stake LP" backgroundGradient="first" customColor="purple" poolContract={contract}/>
               <ChadletButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" poolContract = {contract}/>
               <GalleryButton text="My NFTs" backgroundGradient="third" customColor="pink" />
             </StyledActionsButtonWrapper>

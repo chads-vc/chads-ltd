@@ -25,11 +25,13 @@ import { getTotalCopped } from '../../yamUtils';
 
 import greekRare from '../../assets/img/greek-rare.png'
 import greekCommon from '../../assets/img/greek-common.png'
+import greekLimited from '../../assets/img/greek-limited.png'
 import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
 
 import buyButtonActive from '../../assets/img/buy-button-active.gif'
 import buyButtonDisabled from '../../assets/img/buy-button-disabled.png'
+import soldOutSpinner from '../../assets/img/sold-out-spinner.gif'
 
 const Farm: React.FC = () => {
   const farmId = "chads_eth_uni_lp"
@@ -124,13 +126,13 @@ const Farm: React.FC = () => {
               }
               {i > 0 &&
                  <React.Fragment>
-                  <StyledGreekImage src={greekRare} />
+                  <StyledGreekImage src={i == 1 ? greekRare : greekLimited} />
                   <StyledHeading>
                     420 Chadlets
                   </StyledHeading>
                   <StyledWavyRare src={wavyClipArt} />
                 </React.Fragment>
-	       }
+              }
             </StyledRowHeader>
             <StyledCardsRow>
               {cardRow.map((card, j) => {
@@ -142,7 +144,9 @@ const Farm: React.FC = () => {
                     <StyledCardActions>
                       <Button
                         onClick={() => {
-                          if (card.index == 1) {
+                          if (totalCopped[card.index-1] >= card.max_supply || true) {
+                            window.open("https://opensea.io/", "_blank")
+                          } else if (card.index == 1) {
                             onRedeem("1").then(txnHash => onPresentCoppedModal1());
                           } else if (card.index == 2) {
                             onRedeem("2").then(txnHash => onPresentCoppedModal2());
@@ -160,10 +164,14 @@ const Farm: React.FC = () => {
 
                         }}
                         text=""
-                        disabled={(earnings.toNumber() < card.pool.points) || (totalCopped[card.index-1] >= card.max_supply)} 
+                        disabled={(earnings.toNumber() < card.pool.points)} 
                       />
-                      <StyledBuyButton src={(earnings.toNumber() < card.pool.points) ? buyButtonDisabled : buyButtonActive} />
-                      { <DroppedCoppedLabel dropped={card.max_supply} copped={totalCopped[card.index-1]} /> }
+                      {totalCopped[card.index-1] >= card.max_supply ?
+                        <StyledSoldOutButton src={soldOutSpinner} /> :
+                        <StyledBuyButton src={(earnings.toNumber() < card.pool.points) ? buyButtonDisabled : buyButtonActive} />
+                      }
+                      
+                      <DroppedCoppedLabel dropped={card.max_supply} copped={totalCopped[card.index-1]} />
                     </StyledCardActions>
                   </StyledCardContent>
                 </StyledCard>)
@@ -326,34 +334,44 @@ const StyledGreekImage = styled.img`
 `
 const StyledWavyRare = styled.img`
   position: absolute;
-  right: -30px;
-  top: 0px;
-  transform: rotate(-210deg);
-  width: 263px;
-  height: 204px;
-  object-fit: cover;
+  right: 10px;
+  top: -63px;
+  transform: rotate(100deg);
+  width: 223px;
+  height: 244px;
   @media (max-width: 1024px) {
-    transform: rotate(-190deg);
-    width: 50vw;
-    height: 30vw;
+    transform: rotate(-81deg);
+    width: 38vw;
+    height: 42vw;
     right: 10px;
+    top: -110px;
+  }
+  @media (max-width: 768px) {
+    top: -60px;
+  }
+  @media (max-width: 450px) {
     top: -20px;
   }
 `
 const StyledWavyCommon = styled.img`
   position: absolute;
-  right: -30px;
-  top: 0px;
-  transform: rotate(110deg);
-  width: 223px;
-  height: 284px;
-  object-fit: cover;
+  right: -10px;
+  top: -80px;
+  transform: rotate(99deg);
+  width: 253px;
+  height: 254px;
   @media (max-width: 1024px) {
-    transform: rotate(110deg);
-    width: 183px;
-    height: 164px;
+    transform: rotate(-81deg);
+    width: 38vw;
+    height: 42vw;
     right: 10px;
-    top: -30px;
+    top: -110px;
+  }
+  @media (max-width: 768px) {
+    top: -60px;
+  }
+  @media (max-width: 450px) {
+    top: -20px;
   }
 `
 
@@ -393,11 +411,23 @@ const StyledCard = styled.div`
   }
 `
 
+const StyledSoldOutButton = styled.img`
+  position: absolute;
+  top: -1px;
+  width: 146px;
+  pointer-events: none;
+  height: 55px;
+  margin-left: 3%;
+  object-fit: cover;
+`
+
 const StyledBuyButton = styled.img`
   position: absolute;
   width: 82px;
   pointer-events: none;
   height: 61px;
+  margin-left: 3%;
+  top: 2px;
   object-fit: cover;
 `
 const StyledDroppedContainer = styled.img`

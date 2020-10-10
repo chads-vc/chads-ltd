@@ -37,11 +37,11 @@ const StyledDroppedLabel = styled.label`
 const StyledCoppedSpan = styled.span`
   display: block;
   text-align: center;
-  color: #02F2F2;
+  color: #BA83F0;
 `
 const StyledCoppedLabel = styled.label`
   font-size: 20px;
-  color: #02F2F2;
+  color: #BA83F0;
   display: block;
 `
 

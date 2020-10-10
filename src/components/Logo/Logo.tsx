@@ -41,6 +41,8 @@ const StyledCamera = styled.img`
   width: 92px;
   height: 78px;
   z-index: 3;
+  top: -37px;
+  position: relative;
   @media (max-width: 450px) {
     position: relative;
     height: auto;
@@ -64,7 +66,7 @@ const StyledLogo = styled(Link)`
   display: flex;
   justify-content: center;
   margin: 0;
-  min-height: 44px;
+  min-height: 154px;
   min-width: 44px;
   padding: 0;
   text-decoration: none;
@@ -74,7 +76,6 @@ const StyledLogo = styled(Link)`
 
 const StyledTitle = styled.div`
   font-size: 23px;
-  text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px, rgba(0, 0, 0, 0.6) -1px -1px 1px;
   color: #02F252;
   position: absolute;
   top: 97px;
@@ -92,7 +93,6 @@ const StyledSubtitle = styled.div`
   font-size: 12px;
   letter-spacing: normal;
   color: #02F2F2;
-  text-shadow: rgba(255, 255, 255, 0.6) 1px 1px 1px, rgba(0, 0, 0, 0.6) -1px -1px 1px;
   position: absolute;
   top: 120px;
   left: 43px;

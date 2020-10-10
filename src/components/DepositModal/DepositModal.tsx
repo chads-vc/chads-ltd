@@ -33,7 +33,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
 
   return (
     <Modal>
-      <ModalTitle text={`Deposit ${tokenName}`} />
+      <ModalTitle text={`Deposit CHADS/ETH LP TOKENS`} />
       <TokenInput
         value={val}
         onSelectMax={handleSelectMax}

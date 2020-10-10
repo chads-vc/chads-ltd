@@ -52,10 +52,10 @@ const Button: React.FC<ButtonProps> = ({
       buttonColor = "#BA83F0"
       break
     case 'blue':
-      buttonColor = "#02F2F2"
+      buttonColor = "#BA83F0"
       break
     case 'pink':
-      buttonColor = "#F5C1F0"
+      buttonColor = "#BA83F0"
       break
     default:
       buttonColor = color.primary.main
@@ -147,7 +147,6 @@ const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
   font-weight: bold;
   line-height: 0.9;
-  text-shadow: rgba(255, 255, 255, 0.6) 0.2px 0.2px 0.2px, rgba(0, 0, 0, 0.6) -0.2px -0.2px 0.2px;
   text-transform: uppercase;
   background-color: transparent;
   border: 0;
@@ -188,7 +187,7 @@ const StyledExternalLink = styled.a`
   color: inherit;
   display: flex;
   flex: 1;
-  height: 56px;
+  height: 36px;
   justify-content: center;
   margin: 0 ${props => -props.theme.spacing[4]}px;
   padding: 0 ${props => props.theme.spacing[4]}px;

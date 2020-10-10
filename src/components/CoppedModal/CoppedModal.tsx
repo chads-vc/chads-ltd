@@ -51,28 +51,18 @@ const StyledModalContent = styled.div`
 `
 
 const StyledWavyClipartWrapper = styled.div`
-  z-index: 1;
-  width: 785px;
-  height: 751px;
+  z-index: 2;
+  top: 60px;
   position: absolute;
-  top: -120px;
-  left: -300px;
-  overflow: hidden;
-  transform: rotate(8.209103096004185deg);
-  @media (max-width: 768px) {
-    width: 140vw;
-    height: 160vw;
-  }
+  width: 100%;
 `
 const StyledWavyClipart = styled.img`
-  position: absolute;
-  z-index: 1;
-  width: 677px;
-  height: 840px;
-  left: 197px;
-  top: 38px;
-  object-fit: cover;
-}`
+  position: relative;
+  transform: rotate(10deg);
+  width: 160%;
+  left: -30%;
+  top: -160px;
+`
 
 const StyledCard = styled.img`
   z-index: 2;
@@ -88,7 +78,6 @@ const StyledCoppedSpinnerWrapper = styled.div`
   left: -460px;
   width: 658px;
   height: 300px;
-  overflow: hidden;
   transform: rotate(338.15541147928184deg);
   @media (max-width: 768px) {
     top: 0;
@@ -99,7 +88,6 @@ const StyledCoppedSpinnerWrapper = styled.div`
 `
 
 const StyledCoppedSpinner = styled.img`
-
   position: absolute;
   width: 920px;
   top: 60px;
