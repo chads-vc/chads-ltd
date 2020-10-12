@@ -1,0 +1,17 @@
+{
+	"pool": { "name": "chadlets", "points": 420 },
+	"max_supply": 10,
+	"index": 8,
+	"external_url": "https://api.chads.vc/cards/8",
+	"image": "https://api.chads.vc/img/8.gif",
+	"name": "John McAfee Limited",
+	"description": "The Last Meal",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Limited" },
+		{ "trait_type": "Artist", "value": "Joey Noseeum" },
+		{ "trait_type": "Collection", "value": "Inmates of DeFi" },
+		{ "trait_type": "Type", "value": "Crypto Influencers" },
+		{ "trait_type": "Tag", "value": "IRS" },
+		{ "trait_type": "Max Supply", "value": "10" }
+	]
+}

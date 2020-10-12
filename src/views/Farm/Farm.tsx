@@ -67,6 +67,7 @@ const Farm: React.FC = () => {
   const [onPresentCoppedModal5] = useModal(<CoppedModal cardId={5} />)
   const [onPresentCoppedModal6] = useModal(<CoppedModal cardId={6} />)
   const [onPresentCoppedModal7] = useModal(<CoppedModal cardId={7} />)
+  const [onPresentCoppedModal8] = useModal(<CoppedModal cardId={8} />)
 
   const earnings = useEarnings(contract)
   const rows = chunk(chadletsCards, 3);
@@ -144,8 +145,8 @@ const Farm: React.FC = () => {
                     <StyledCardActions>
                       <Button
                         onClick={() => {
-                          if (totalCopped[card.index-1] >= card.max_supply || true) {
-                            window.open("https://opensea.io/", "_blank")
+                          if (totalCopped[card.index-1] >= card.max_supply) {
+                            window.open(`https://opensea.io/assets/0xeb6f174970ccdd51ed72c9978a50d83123322ff3/${card.index}`, "_blank")
                           } else if (card.index == 1) {
                             onRedeem("1").then(txnHash => onPresentCoppedModal1());
                           } else if (card.index == 2) {
@@ -160,11 +161,14 @@ const Farm: React.FC = () => {
                             onRedeem("6").then(txnHash => onPresentCoppedModal6());
                           } else if (card.index == 7) {
                             onRedeem("7").then(txnHash => onPresentCoppedModal7());
+                          } else if (card.index == 8) {
+                            onRedeem("8").then(txnHash => onPresentCoppedModal8());
                           }
+
 
                         }}
                         text=""
-                        disabled={(earnings.toNumber() < card.pool.points)} 
+                        disabled={(earnings.toNumber() < card.pool.points) && (totalCopped[card.index-1] < card.max_supply)} 
                       />
                       {totalCopped[card.index-1] >= card.max_supply ?
                         <StyledSoldOutButton src={soldOutSpinner} /> :
