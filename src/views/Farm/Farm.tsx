@@ -29,9 +29,9 @@ import greekLimited from '../../assets/img/greek-limited.png'
 import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
 
-import buyButtonActive from '../../assets/img/buy-button-active.gif'
-import buyButtonDisabled from '../../assets/img/buy-button-disabled.png'
-import soldOutSpinner from '../../assets/img/sold-out-spinner.gif'
+import buyButtonActive from '../../assets/img/mint-button-active.gif'
+import buyButtonDisabled from '../../assets/img/mint-button-disabled.png'
+import soldOutSpinner from '../../assets/img/buy-button-active.gif'
 
 const Farm: React.FC = () => {
   const farmId = "chads_eth_uni_lp"
@@ -164,8 +164,6 @@ const Farm: React.FC = () => {
                           } else if (card.index == 8) {
                             onRedeem("8").then(txnHash => onPresentCoppedModal8());
                           }
-
-
                         }}
                         text=""
                         disabled={(earnings.toNumber() < card.pool.points) && (totalCopped[card.index-1] < card.max_supply)} 
@@ -308,9 +306,9 @@ const StyledRowHeader = styled.div`
 const StyledHeading = styled.div`
   display: block;
   text-align: right;
-  text-shadow: rgba(0, 0, 0, 0.298039) 0px 5px 0px;
+  text-shadow: #02F2F2 0px 5px 0px;
   font-size: 75px;
-  color: #02F2F2;
+  color: #BA83F0;
   text-transform: uppercase;
   position: absolute;
   bottom: 0px;
@@ -338,44 +336,88 @@ const StyledGreekImage = styled.img`
 `
 const StyledWavyRare = styled.img`
   position: absolute;
-  right: 10px;
-  top: -63px;
-  transform: rotate(100deg);
-  width: 223px;
-  height: 244px;
+  right: 25px;
+  top: -54px;
+  transform: rotate(99.5deg);
+  width: 190px;
+  height: 271px;
   @media (max-width: 1024px) {
-    transform: rotate(-81deg);
-    width: 38vw;
-    height: 42vw;
-    right: 10px;
-    top: -110px;
+    transform: rotate(-261deg);
+    width: 35vw;
+    height: 51vw;
+    right: 38px;
+    top: -11vw;
+  }
+  @media (max-width: 928px) {
+    transform: rotate(-261deg);
+    width: 33vw;
+    height: 51vw;
+    right: 58px;
+    top: -11.5vw;
   }
   @media (max-width: 768px) {
-    top: -60px;
+    transform: rotate(-261deg);
+    width: 35vw;
+    height: 51vw;
+    right: 38px;
+    top: -11vw;
+  }
+  @media (max-width: 600px) {
+    transform: rotate(-261deg);
+    width: 41vw;
+    height: 58vw;
+    right: 25px;
+    top: -11vw;
   }
   @media (max-width: 450px) {
-    top: -20px;
+    transform: rotate(-261deg);
+    width: 41vw;
+    height: 58vw;
+    right: 25px;
+    top: -11vw;
   }
 `
 const StyledWavyCommon = styled.img`
   position: absolute;
-  right: -10px;
-  top: -80px;
-  transform: rotate(99deg);
-  width: 253px;
-  height: 254px;
-  @media (max-width: 1024px) {
-    transform: rotate(-81deg);
+  right: 25px;
+  top: -54px;
+  transform: rotate(99.5deg);
+  width: 190px;
+  height: 271px;
+  @media screen and (min-width: 928px) and (max-width: 1024px) {
+    transform: rotate(-261deg);
+    width: 33vw;
+    height: 48vw;
+    right: 45px;
+    top: -10.75vw;
+  }
+  @media screen and (min-width: 768px) and (max-width: 928px) {
+    transform: rotate(-261deg);
+    width: 33vw;
+    height: 51vw;
+    right: 6vw;
+    top: -11.5vw;
+  }
+  @media screen and (min-width: 600px) and (max-width: 768px) {
+    transform: rotate(-261deg);
+    width: 35vw;
+    height: 51vw;
+    right: 38px;
+    top: -11vw;
+  }
+  @media screen and (min-width: 450px) and (max-width: 600px) {
+    transform: rotate(-261deg);
     width: 38vw;
-    height: 42vw;
-    right: 10px;
-    top: -110px;
+    height: 55vw;
+    right: 31px;
+    top: -11vw;
   }
-  @media (max-width: 768px) {
-    top: -60px;
-  }
-  @media (max-width: 450px) {
-    top: -20px;
+  @media screen and (max-width: 450px) {
+    transform: rotate(-261deg);
+    width: 41vw;
+    height: 58vw;
+    right: 25px;
+    top: -11vw;
   }
 `
 
@@ -417,11 +459,11 @@ const StyledCard = styled.div`
 
 const StyledSoldOutButton = styled.img`
   position: absolute;
-  top: -1px;
-  width: 146px;
+  top: 16px;
+  width: 76px;
   pointer-events: none;
-  height: 55px;
-  margin-left: 3%;
+  height: 29px;
+  margin-left: 6%;
   object-fit: cover;
 `
 
@@ -429,9 +471,9 @@ const StyledBuyButton = styled.img`
   position: absolute;
   width: 82px;
   pointer-events: none;
-  height: 61px;
-  margin-left: 3%;
-  top: 2px;
+  height: 40px;
+  margin-left: 4.2%;
+  top: 8.5px;
   object-fit: cover;
 `
 const StyledDroppedContainer = styled.img`
