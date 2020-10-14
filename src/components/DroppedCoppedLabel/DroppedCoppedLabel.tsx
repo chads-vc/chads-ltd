@@ -11,11 +11,11 @@ const DroppedCoppedLabel: React.FC<DroppedCoppedLabelProps> = ({ dropped, copped
     <StyledDroppedCoppedWrapper>
       <StyledDroppedContainer>
         <StyledDroppedLabel>DROPPED</StyledDroppedLabel>
-        <StyledDroppedSpan>{dropped}</StyledDroppedSpan>
+        <StyledDroppedSpan>{dropped || "-"}</StyledDroppedSpan>
       </StyledDroppedContainer>
       <StyledCoppedContainer>
         <StyledCoppedLabel>COPPED</StyledCoppedLabel>
-        <StyledCoppedSpan>{copped}</StyledCoppedSpan>
+        <StyledCoppedSpan>{copped || "-"}</StyledCoppedSpan>
       </StyledCoppedContainer>
     </StyledDroppedCoppedWrapper>
   )
