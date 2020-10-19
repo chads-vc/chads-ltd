@@ -68,6 +68,9 @@ const Farm: React.FC = () => {
   const [onPresentCoppedModal6] = useModal(<CoppedModal cardId={6} />)
   const [onPresentCoppedModal7] = useModal(<CoppedModal cardId={7} />)
   const [onPresentCoppedModal8] = useModal(<CoppedModal cardId={8} />)
+   const [onPresentCoppedModal9] = useModal(<CoppedModal cardId={9} />)
+   const [onPresentCoppedModal10] = useModal(<CoppedModal cardId={10} />)
+   const [onPresentCoppedModal11] = useModal(<CoppedModal cardId={11} />)
 
   const earnings = useEarnings(contract)
   const rows = chunk(chadletsCards, 3);
@@ -163,7 +166,20 @@ const Farm: React.FC = () => {
                             onRedeem("7").then(txnHash => onPresentCoppedModal7());
                           } else if (card.index == 8) {
                             onRedeem("8").then(txnHash => onPresentCoppedModal8());
+                          } else if (card.index == 9) {
+                             onRedeem("9").then(txnHash => onPresentCoppedModal9());
+                           }else if (card.index == 10) {
+                             onRedeem("10").then(txnHash => onPresentCoppedModal10());
+                           }else if (card.index == 11) {
+                             onRedeem("11").then(txnHash => onPresentCoppedModal11());
                           }
+                          // else if (card.index == 9) {
+                          //   onRedeem("9").then(txnHash => onPresentCoppedModal9());
+                          // }else if (card.index == 10) {
+                          //   onRedeem("10").then(txnHash => onPresentCoppedModal10());
+                          // }else if (card.index == 11) {
+                          //   onRedeem("11").then(txnHash => onPresentCoppedModal11());
+                          // }
                         }}
                         text=""
                         disabled={(earnings.toNumber() < card.pool.points) && (totalCopped[card.index-1] < card.max_supply)} 

@@ -1,14 +1,8 @@
 import BigNumber from 'bignumber.js/bignumber';
 
-import card1 from '../../assets/cards/1.json'
-import card2 from '../../assets/cards/2.json'
-import card3 from '../../assets/cards/3.json'
-import card4 from '../../assets/cards/4.json'
-import card5 from '../../assets/cards/5.json'
-import card6 from '../../assets/cards/6.json'
-import card7 from '../../assets/cards/7.json'
-import card8 from '../../assets/cards/8.json'
-
+import card9 from "../../assets/cards/9.json";
+import card10 from "../../assets/cards/10.json";
+import card11 from "../../assets/cards/11.json";
 export const SUBTRACT_GAS_LIMIT = 100000;
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60);
@@ -56,5 +50,8 @@ export const chadletsCards = [
   card5,
   card6,
   card7,
-  card8
+  card8,
+  card9,
+  card10,
+  card11,
 ];
