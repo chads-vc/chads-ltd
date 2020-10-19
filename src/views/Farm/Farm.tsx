@@ -25,6 +25,7 @@ import { getTotalCopped } from '../../yamUtils';
 
 import greekRare from '../../assets/img/greek-rare.png'
 import greekCommon from '../../assets/img/greek-common.png'
+import greekArtist from '../../assets/img/greek-artist.png'
 import greekLimited from '../../assets/img/greek-limited.png'
 import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
@@ -73,8 +74,12 @@ const Farm: React.FC = () => {
    const [onPresentCoppedModal11] = useModal(<CoppedModal cardId={11} />)
 
   const earnings = useEarnings(contract)
-  const rows = chunk(chadletsCards, 3);
-  console.log(rows);
+
+  const rows = chunk(chadletsCards.slice(0,8), 3);
+  const cols = chunk(chadletsCards.slice(8,11), 1);
+  console.log("rows" ,rows);  
+  console.log("cols",cols);
+
 
   const depositTokenName = useMemo(() => {
     return depositToken.toUpperCase()
