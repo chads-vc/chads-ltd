@@ -74,13 +74,10 @@ const Farm: React.FC = () => {
    const [onPresentCoppedModal11] = useModal(<CoppedModal cardId={11} />)
 
   const earnings = useEarnings(contract)
-
+  
   const rows = chunk(chadletsCards.slice(0,8), 3);
-  const cols = chunk(chadletsCards.slice(8,11), 1);
-  console.log("rows" ,rows);  
-  console.log("cols",cols);
-
-
+  const cols = chunk(chadletsCards.slice(8,11), 3);
+  console.log(rows,cols);
   const depositTokenName = useMemo(() => {
     return depositToken.toUpperCase()
   }, [depositToken])
@@ -199,6 +196,70 @@ const Farm: React.FC = () => {
             <Loader text="Loading.." />
           </StyledLoadingWrapper>
         )}
+        {/* vertical layout */}
+        {cols &&cols.map((cardRow, i) => (
+          (<StyleVertRow key={i}>
+            <StyledRowHeader>
+               	<React.Fragment>
+                  <StyledGreekImage src={greekArtist} />
+                  <StyledVertHeading>
+                  Penfold Series/2500 CHADLETs
+                  </StyledVertHeading>
+                  <StyledWavyCommon src={wavyClipArt} />
+                </React.Fragment>
+            </StyledRowHeader>
+            <StyledVertCardsRow>
+              {cardRow.map((card, j) => {
+                return (<StyledVertCard key={j}>
+                  <StyledCardContent>
+                    <StyledVertContent>
+                      <StyledCardImage src={`https://api.chads.vc/img/${card.index}.gif`} />
+                    </StyledVertContent>
+                    <StyledCardActions>
+                      <Button
+                        onClick={() => {
+                          if (totalCopped[card.index-1] >= card.max_supply) {
+                            window.open(`https://opensea.io/assets/0xeb6f174970ccdd51ed72c9978a50d83123322ff3/${card.index}`, "_blank")
+                          } else if (card.index == 1) {
+                            onRedeem("1").then(txnHash => onPresentCoppedModal1());
+                          } else if (card.index == 2) {
+                            onRedeem("2").then(txnHash => onPresentCoppedModal2());
+                          } else if (card.index == 3) {
+                            onRedeem("3").then(txnHash => onPresentCoppedModal3());
+                          } else if (card.index == 4) {
+                            onRedeem("4").then(txnHash => onPresentCoppedModal4());
+                          } else if (card.index == 5) {
+                            onRedeem("5").then(txnHash => onPresentCoppedModal5());
+                          } else if (card.index == 6) {
+                            onRedeem("6").then(txnHash => onPresentCoppedModal6());
+                          } else if (card.index == 7) {
+                            onRedeem("7").then(txnHash => onPresentCoppedModal7());
+                          } else if (card.index == 8) {
+                            onRedeem("8").then(txnHash => onPresentCoppedModal8());
+                          } else if (card.index == 9) {
+                             onRedeem("9").then(txnHash => onPresentCoppedModal9());
+                           }else if (card.index == 10) {
+                             onRedeem("10").then(txnHash => onPresentCoppedModal10());
+                           }else if (card.index == 11) {
+                             onRedeem("11").then(txnHash => onPresentCoppedModal11());
+                           }
+                        }}
+                        text=""
+                        disabled={(earnings.toNumber() < card.pool.points) && (totalCopped[card.index-1] < card.max_supply)} 
+                      />
+                      {totalCopped[card.index-1] >= card.max_supply ?
+                        <StyledSoldOutButton src={soldOutSpinner} /> :
+                        <StyledBuyButton src={(earnings.toNumber() < card.pool.points) ? buyButtonDisabled : buyButtonActive} />
+                      }
+                      
+                      <DroppedCoppedLabel dropped={card.max_supply} copped={totalCopped[card.index-1]} />
+                    </StyledCardActions>
+                  </StyledCardContent>
+                </StyledVertCard>)
+              })}
+            </StyledVertCardsRow>
+          </StyleVertRow>)
+        ))}
       </StyledCards>
     </>
   )
@@ -238,7 +299,22 @@ const StyledLoadingWrapper = styled.div`
   flex: 1;
   justify-content: center;
 `
-
+const StyleVertRow = styled.div`
+  display: flex;
+  position: relative;
+  // margin-top: 230px;
+  // margin-bottom: 300px;
+  // flex-flow: row wrap;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 350px;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 310px;
+  }
+`
 const StyledRow = styled.div`
   display: flex;
   position: relative;
@@ -255,6 +331,7 @@ const StyledRow = styled.div`
     margin-bottom: 310px;
   }
 `
+
 const StyledCardWrapper = styled.div`
   display: flex;
   width: calc((900px - ${props => props.theme.spacing[4]}px * 2) / 3);
@@ -274,7 +351,11 @@ const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
 `
-
+const StyledVertContent = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`
 const StyledSpacer = styled.div`
   width: 50px;
   height: 50px;
@@ -315,6 +396,24 @@ const StyledRowHeader = styled.div`
     flex-wrap: wrap;
   }
 
+`
+
+const StyledVertHeading = styled.div`
+  display: block;
+  text-align: right;
+  text-shadow: #02F2F2 0px 5px 0px;
+  font-size: 55px;
+  color: #BA83F0;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  z-index: 2;
+  @media (max-width: 1024px) {
+    font-size: 8vw;
+    bottom: 8px;
+    right: 20px;
+   }
 `
 
 const StyledHeading = styled.div`
@@ -460,11 +559,41 @@ const StyledCardsRow = styled.div`
   }
 `
 
+const StyledVertCardsRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    margin-top: 10vw;
+  }
+  @media (max-width: 768px) {
+    margin-top: 3vw;
+  }
+  @media (max-width: 512px) {
+    margin-top: -3vw;
+  }
+  @media (max-width: 400px) {
+    margin-top: -40px;
+  }
+  @media (max-width: 350px) {
+    margin-top: -60px;
+  }
+`
+
 const StyledCardImage = styled.img`
   width: 100%;
 `
 const StyledCard = styled.div`
   width: 30%;
+  @media (max-width: 520px) {
+    width: 100%;
+    padding: 25px;
+  }
+`
+const StyledVertCard = styled.div`
+  width: 100%;
   @media (max-width: 520px) {
     width: 100%;
     padding: 25px;
