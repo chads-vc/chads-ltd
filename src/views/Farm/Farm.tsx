@@ -172,14 +172,7 @@ const Farm: React.FC = () => {
                              onRedeem("10").then(txnHash => onPresentCoppedModal10());
                            }else if (card.index == 11) {
                              onRedeem("11").then(txnHash => onPresentCoppedModal11());
-                          }
-                          // else if (card.index == 9) {
-                          //   onRedeem("9").then(txnHash => onPresentCoppedModal9());
-                          // }else if (card.index == 10) {
-                          //   onRedeem("10").then(txnHash => onPresentCoppedModal10());
-                          // }else if (card.index == 11) {
-                          //   onRedeem("11").then(txnHash => onPresentCoppedModal11());
-                          // }
+                           }
                         }}
                         text=""
                         disabled={(earnings.toNumber() < card.pool.points) && (totalCopped[card.index-1] < card.max_supply)} 
