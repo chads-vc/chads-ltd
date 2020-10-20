@@ -213,7 +213,7 @@ const Farm: React.FC = () => {
                 return (<StyledVertCard key={j}>
                   <StyledCardContent>
                     <StyledVertContent>
-                      <StyledCardImage src={`https://api.chads.vc/img/${card.index}.gif`} />
+                      <StyledCardImage src={`https://api.chads.vc/img/${card.index}.png`} />
                     </StyledVertContent>
                     <StyledCardActions>
                       <Button
