@@ -4,7 +4,7 @@
 	"max_supply": 3,
 	"index": 10,
 	"image": "https://api.chads.vc/img/10.png",
-	"name": "Room Scrape",
+	"name": "Penfold Room Scrape",
 	"description": "Explorative abstract art by Mr. Penfold",
 	"attributes": [
 		{ "trait_type": "Rarity", "value": "Limited" },

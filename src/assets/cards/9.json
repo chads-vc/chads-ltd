@@ -4,7 +4,7 @@
 	"image": "https://api.chads.vc/img/9.png",
 	"max_supply": 3,
 	"index": 9,
-	"name": "CHADS",
+	"name": "Penfold CHADS",
 	"description": "CHADS written in Penfold's unique graf culture-inspired style",
 	"attributes": [
 		{ "trait_type": "Rarity", "value": "Limited" },
