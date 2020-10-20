@@ -203,7 +203,7 @@ const Farm: React.FC = () => {
                	<React.Fragment>
                   <StyledGreekImage src={greekArtist} />
                   <StyledVertHeading>
-                  Penfold Series/2500 CHADLETs
+                  Penfold Series<br/>2500 CHADLETs
                   </StyledVertHeading>
                   <StyledWavyCommon src={wavyClipArt} />
                 </React.Fragment>
@@ -594,6 +594,7 @@ const StyledCard = styled.div`
 `
 const StyledVertCard = styled.div`
   width: 100%;
+  padding-top:10px;
   @media (max-width: 520px) {
     width: 100%;
     padding: 25px;

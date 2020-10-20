@@ -1,17 +1,15 @@
 {
-	"pool": { "name": "chadlets", "points": 420 },
-	"max_supply": 10,
-	"index": 11,
+	"pool": { "name": "chadlets", "points": 2500 },
 	"external_url": "https://api.chads.vc/cards/11",
-	"image": "https://api.chads.vc/img/11.gif",
-	"name": "John McAfee Limited - 11",
-	"description": "The Last Meal - 11",
+	"max_supply": 3,
+	"index": 11,
+	"image": "https://api.chads.vc/img/11.png",
+	"name": "69",
+	"description": "69 written in Penfold's signature cigarettes",
 	"attributes": [
 		{ "trait_type": "Rarity", "value": "Limited" },
-		{ "trait_type": "Artist", "value": "Joey Noseeum" },
-		{ "trait_type": "Collection", "value": "Inmates of DeFi" },
-		{ "trait_type": "Type", "value": "Crypto Influencers" },
-		{ "trait_type": "Tag", "value": "IRS" },
-		{ "trait_type": "Max Supply", "value": "10" }
+		{ "trait_type": "Artist", "value": "Mr. Penfold" },
+		{ "trait_type": "Collection", "value": "Penfold" },
+		{ "trait_type": "Max Supply", "value": "3" }
 	]
 }
