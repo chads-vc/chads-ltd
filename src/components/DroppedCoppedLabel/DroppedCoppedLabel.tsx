@@ -15,7 +15,7 @@ const DroppedCoppedLabel: React.FC<DroppedCoppedLabelProps> = ({ dropped, copped
       </StyledDroppedContainer>
       <StyledCoppedContainer>
         <StyledCoppedLabel>COPPED</StyledCoppedLabel>
-        <StyledCoppedSpan>{copped || "-"}</StyledCoppedSpan>
+        <StyledCoppedSpan>{copped || "0"}</StyledCoppedSpan>
       </StyledCoppedContainer>
     </StyledDroppedCoppedWrapper>
   )

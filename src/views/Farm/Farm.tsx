@@ -93,7 +93,9 @@ const Farm: React.FC = () => {
       result.push(cardCopped.toNumber());
     }
     setTotalCopped(result);
+    console.log(result);
   }, [yam, setTotalCopped])
+
 
   useEffect(() => {
     if (yam) {
