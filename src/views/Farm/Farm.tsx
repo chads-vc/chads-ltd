@@ -96,6 +96,7 @@ const Farm: React.FC = () => {
     console.log(result);
   }, [yam, setTotalCopped])
 
+  console.log(totalCopped);
 
   useEffect(() => {
     if (yam) {
