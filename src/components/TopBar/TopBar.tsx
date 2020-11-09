@@ -89,6 +89,7 @@ const StyledWalletButtonWrapper = styled.div`
   @media (max-width: 450px) {
     margin-top: 50px;
   }
+  z-index:2000;
 `
 
 const StyledActionsMenu = styled.div`

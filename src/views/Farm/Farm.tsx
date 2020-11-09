@@ -26,6 +26,7 @@ import { getTotalCopped } from '../../yamUtils';
 import greekRare from '../../assets/img/greek-rare.png'
 import greekCommon from '../../assets/img/greek-common.png'
 import greekArtist from '../../assets/img/greek-artist.png'
+import greekCommunity from '../../assets/img/greek-community.png'
 import greekLimited from '../../assets/img/greek-limited.png'
 import gradientBg from '../../assets/img/button-bg-all-thirds.png'
 import wavyClipArt from '../../assets/img/wavy-clipart.png'
@@ -72,11 +73,17 @@ const Farm: React.FC = () => {
    const [onPresentCoppedModal9] = useModal(<CoppedModal cardId={9} />)
    const [onPresentCoppedModal10] = useModal(<CoppedModal cardId={10} />)
    const [onPresentCoppedModal11] = useModal(<CoppedModal cardId={11} />)
+   const [onPresentCoppedModal12] = useModal(<CoppedModal cardId={12} />)
+   const [onPresentCoppedModal13] = useModal(<CoppedModal cardId={13} />)
+   const [onPresentCoppedModal14] = useModal(<CoppedModal cardId={14} />)
+
 
   const earnings = useEarnings(contract)
   
   const rows = chunk(chadletsCards.slice(0,8), 3);
-  const cols = chunk(chadletsCards.slice(8,11), 3);
+  //const cols = chunk(chadletsCards.slice(8,11), 3);
+
+  const cols = chunk(chadletsCards.slice(11,14), 3);
   console.log(rows,cols);
   const depositTokenName = useMemo(() => {
     return depositToken.toUpperCase()
@@ -201,23 +208,23 @@ const Farm: React.FC = () => {
         )}
         {/* vertical layout */}
         {cols &&cols.map((cardRow, i) => (
-          (<StyleVertRow key={i}>
+          (<StyledRow key={i}>
             <StyledRowHeader>
                	<React.Fragment>
-                  <StyledGreekImage src={greekArtist} />
-                  <StyledVertHeading>
-                  Penfold Series<br/>2500 CHADLETs
-                  </StyledVertHeading>
+                  <StyledGreekImage src={greekCommunity} />
+                  <StyledHeading>
+                    420 CHADLETs
+                  </StyledHeading>
                   <StyledWavyCommon src={wavyClipArt} />
                 </React.Fragment>
             </StyledRowHeader>
-            <StyledVertCardsRow>
+            <StyledCardsRow>
               {cardRow.map((card, j) => {
-                return (<StyledVertCard key={j}>
+                return (<StyledCard key={j}>
                   <StyledCardContent>
-                    <StyledVertContent>
-                      <StyledCardImage src={`https://api.chads.vc/img/${card.index}.png`} />
-                    </StyledVertContent>
+                    <StyledContent>
+                      <StyledCardImage src={`https://api.chads.vc/img/${card.index}.gif`} />
+                    </StyledContent>
                     <StyledCardActions>
                       <Button
                         onClick={() => {
@@ -239,12 +246,12 @@ const Farm: React.FC = () => {
                             onRedeem("7").then(txnHash => onPresentCoppedModal7());
                           } else if (card.index == 8) {
                             onRedeem("8").then(txnHash => onPresentCoppedModal8());
-                          } else if (card.index == 9) {
-                             onRedeem("9").then(txnHash => onPresentCoppedModal9());
-                           }else if (card.index == 10) {
-                             onRedeem("10").then(txnHash => onPresentCoppedModal10());
-                           }else if (card.index == 11) {
-                             onRedeem("11").then(txnHash => onPresentCoppedModal11());
+                          } else if (card.index == 12) {
+                            onRedeem("12").then(txnHash => onPresentCoppedModal12());
+                           }else if (card.index == 13) {
+                             onRedeem("13").then(txnHash => onPresentCoppedModal13());
+                           }else if (card.index == 14) {
+                             onRedeem("14").then(txnHash => onPresentCoppedModal14());
                            }
                         }}
                         text=""
@@ -258,10 +265,10 @@ const Farm: React.FC = () => {
                       <DroppedCoppedLabel dropped={card.max_supply} copped={totalCopped[card.index-1]} />
                     </StyledCardActions>
                   </StyledCardContent>
-                </StyledVertCard>)
+                </StyledCard>)
               })}
-            </StyledVertCardsRow>
-          </StyleVertRow>)
+            </StyledCardsRow>
+          </StyledRow>)
         ))}
       </StyledCards>
     </>
@@ -538,6 +545,8 @@ const StyledWavyCommon = styled.img`
 `
 
 const StyledCardContent = styled.div`
+  position:absolute;
+  bottom:0;
 `
 
 const StyledCardsRow = styled.div`
@@ -590,6 +599,8 @@ const StyledCardImage = styled.img`
 `
 const StyledCard = styled.div`
   width: 30%;
+  position:relative; 
+  height:525px;
   @media (max-width: 520px) {
     width: 100%;
     padding: 25px;

@@ -11,6 +11,10 @@ import card8 from "../../assets/cards/8.json";
 import card9 from "../../assets/cards/9.json";
 import card10 from "../../assets/cards/10.json";
 import card11 from "../../assets/cards/11.json";
+import card12 from "../../assets/cards/12.json";
+import card13 from "../../assets/cards/13.json";
+import card14 from "../../assets/cards/14.json";
+
 export const SUBTRACT_GAS_LIMIT = 100000;
 
 const ONE_MINUTE_IN_SECONDS = new BigNumber(60);
@@ -62,4 +66,7 @@ export const chadletsCards = [
   card9,
   card10,
   card11,
+  card12,
+  card13,
+  card14
 ];
