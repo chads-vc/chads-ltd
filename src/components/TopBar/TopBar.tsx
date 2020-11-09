@@ -9,8 +9,11 @@ import StakeButton from './components/StakeButton'
 import WalletButton from './components/WalletButton'
 import GalleryButton from './components/GalleryButton'
 
+import Button from '../Button'
+
 import ChadletButton from './components/ChadletsButton'
 import Nav from './components/Nav'
+
 
 import useFarm from '../../hooks/useFarm'
 
@@ -48,6 +51,10 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
             <StyledWalletButtonWrapper>
               <WalletButton text="Unlock" backgroundGradient="all" customColor="blue" />
             </StyledWalletButtonWrapper>
+            <StyledActionsButtonWrapper>
+              <Button size="sm" text="Penfold" backgroundGradient="first" customColor="purple" to="/artist" />
+              <Button size="sm" text="Chads of DeFi" backgroundGradient="second" customColor="blue" to="/" />
+            </StyledActionsButtonWrapper>
             <StyledActionsButtonWrapper>
               <StakeButton text="Stake LP" backgroundGradient="first" customColor="purple" poolContract={contract}/>
               <ChadletButton text="0.00 Chadlets" backgroundGradient="second" customColor="blue" poolContract = {contract}/>
@@ -98,7 +105,6 @@ const StyledActionsMenu = styled.div`
   padding-top: 25px;
   display: block;
   @media (max-width: 768px) {
-    padding-top: 80px;
     display: flex;
     margin: auto;
     flex-wrap: wrap;
@@ -121,7 +127,6 @@ const StyledActionsButtonWrapper = styled.div`
   @media (max-width: 768px) {
     transform: scale(1);
     display: flex;
-    margin: 80px auto;
     max-width: 100%;
     margin-top: 30px;
     flex-wrap: wrap;

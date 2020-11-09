@@ -1,0 +1,16 @@
+{
+	"pool": { "name": "chadlets", "points": 420 },
+	"external_url": "https://api.chads.vc/cards/14",
+	"image": "https://api.chads.vc/img/14.gif",
+	"name": "Vitalik Buterin",
+	"max_supply": 25,
+	"index": 14,
+	"description": "",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Limited" },
+		{ "trait_type": "Artist", "value": "ClockworkWolf" },
+		{ "trait_type": "Collection", "value": "Community Chads of DeFi" },
+		{ "trait_type": "Type", "value": "Crypto Influencers" },
+		{ "trait_type": "Max Supply", "value": "25" }
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"pool": { "name": "chadlets", "points": 420 },
+	"external_url": "https://api.chads.vc/cards/12",
+	"image": "https://api.chads.vc/img/12.gif",
+	"max_supply": 25,
+	"index": 12,
+	"name": "Wolf Crypto",
+	"description": "Some Chads are not made, they are born",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Limited" },
+		{ "trait_type": "Artist", "value": "Darko" },
+		{ "trait_type": "Collection", "value": "Community Chads of DeFi" },
+		{ "trait_type": "Type", "value": "Crypto Influencers" },
+		{ "trait_type": "Max Supply", "value": "25" }
+	]
+}

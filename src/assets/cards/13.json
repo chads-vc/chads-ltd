@@ -1,0 +1,16 @@
+{
+	"pool": { "name": "chadlets", "points": 420 },
+	"external_url": "https://api.chads.vc/cards/13",
+	"image": "https://api.chads.vc/img/13.gif",
+	"name": "Based Ghouls",
+	"max_supply": 25,
+	"index": 13,
+	"description": "if it based i do it",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Limited" },
+		{ "trait_type": "Artist", "value": "Cameron Lee" },
+		{ "trait_type": "Collection", "value": "Community Chads of DeFi" },
+		{ "trait_type": "Type", "value": "Crypto Influencers" },
+		{ "trait_type": "Max Supply", "value": "25" }
+	]
+}

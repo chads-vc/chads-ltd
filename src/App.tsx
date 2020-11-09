@@ -19,7 +19,7 @@ import TransactionProvider from './contexts/Transactions'
 
 import useModal from './hooks/useModal'
 
-import FAQ from './views/FAQ'
+import Artist from './views/ArtistFarms'
 import Farms from './views/Farms'
 import Home from './views/Home'
 
@@ -49,8 +49,8 @@ const App: React.FC = () => {
           <Route path="/farms">
             <Farms />
           </Route>
-          <Route path="/faq">
-            <FAQ />
+          <Route path="/artist">
+            <Artist />
           </Route>
         </Switch>
       </Router>
@@ -95,7 +95,7 @@ const Disclaimer: React.FC = () => {
     if (!seenDisclaimer && false) {
       onPresentDisclaimerModal()
     }
-  }, [])
+  }, [onPresentDisclaimerModal])
 
   return (
     <div />
