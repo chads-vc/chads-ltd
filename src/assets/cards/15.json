@@ -1,0 +1,15 @@
+{
+	"pool": { "name": "chadlets", "points": 2500 },
+	"external_url": "https://api.chads.vc/cards/15",
+	"image": "https://api.chads.vc/img/15.png",
+	"max_supply": 3,
+	"index": 15,
+	"name": "Entrance to Chadhalla",
+	"description": "Vaporwave depiction of acension",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Limited" },
+		{ "trait_type": "Artist", "value": "Blunt Action" },
+		{ "trait_type": "Collection", "value": "Blunt Action" },
+		{ "trait_type": "Max Supply", "value": "3" }
+	]
+}

@@ -52,8 +52,10 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
               <WalletButton text="Unlock" backgroundGradient="all" customColor="blue" />
             </StyledWalletButtonWrapper>
             <StyledActionsButtonWrapper>
-              <Button size="sm" text="Penfold" backgroundGradient="first" customColor="purple" to="/artist" />
-              <Button size="sm" text="Chads of DeFi" backgroundGradient="second" customColor="blue" to="/" />
+              <Button size="sm" text="Penfold" backgroundGradient="first" customColor="purple" to="/artist-penfold" />
+              <Button size="sm" text="Blunt Action" backgroundGradient="second" customColor="blue" to="/artist-ba" />
+ 
+              <Button size="sm" text="Chads of DeFi" backgroundGradient="third" customColor="pink" to="/" />
             </StyledActionsButtonWrapper>
             <StyledActionsButtonWrapper>
               <StakeButton text="Stake LP" backgroundGradient="first" customColor="purple" poolContract={contract}/>

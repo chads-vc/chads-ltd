@@ -1,0 +1,15 @@
+{
+	"pool": { "name": "chadlets", "points": 4200 },
+	"external_url": "https://api.chads.vc/cards/17",
+	"image": "https://api.chads.vc/video/17.mp4",
+	"max_supply": 3,
+	"index": 17,
+	"name": "Blunt Action x Whispa",
+	"description": "Psychedelic collaboration with visuals from Blunt Action and orginal track from Whispa",
+	"attributes": [
+		{ "trait_type": "Rarity", "value": "Limited" },
+		{ "trait_type": "Artist", "value": "Blunt Action and Whispa" },
+		{ "trait_type": "Collection", "value": "Blunt Action" },
+		{ "trait_type": "Max Supply", "value": "3" }
+	]
+}

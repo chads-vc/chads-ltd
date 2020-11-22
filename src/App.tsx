@@ -19,7 +19,8 @@ import TransactionProvider from './contexts/Transactions'
 
 import useModal from './hooks/useModal'
 
-import Artist from './views/ArtistFarms'
+import ArtistPenfold from './views/ArtistFarmsPenfold'
+import ArtistBA from './views/ArtistFarmsBA'
 import Farms from './views/Farms'
 import Home from './views/Home'
 
@@ -49,8 +50,11 @@ const App: React.FC = () => {
           <Route path="/farms">
             <Farms />
           </Route>
-          <Route path="/artist">
-            <Artist />
+          <Route path="/artist-penfold">
+            <ArtistPenfold />
+          </Route>
+          <Route path="/artist-ba">
+            <ArtistBA />
           </Route>
         </Switch>
       </Router>
